@@ -8,9 +8,6 @@ else
     pushd $DOTFILE_PATH
 fi
 
-for dotfile in screenrc bashrc
-do
-    ln -s $DOTFILE_PATH/$dotfile ~/.$dotfile
-done
+/usr/bin/env ruby install.rb
 
 popd

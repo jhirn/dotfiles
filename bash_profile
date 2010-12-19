@@ -7,7 +7,7 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
 fi
 
 export RSENSE_HOME=/.emacs.d/vendor/rsense-0.3
-if [ -f ~/.emacs.d/vendor/rsense-0.3/etc/rsense.el ]; then
+if [ -f ~/.emacs.d/vendor/rsense-0.3/etc/rsense.el && ]; then
     ruby /.emacs.d/vendor/rsense-0.3/etc/rsense.el > ~/.rsense
 fi
 
