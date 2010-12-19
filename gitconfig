@@ -1,0 +1,12 @@
+[alias]
+  st = status
+  ll = log --pretty=oneline --abbrev-commit --max-count=15
+  co = checkout
+  br = branch
+  df = diff --color
+  ci = commit
+[ui]
+  color = auto
+[user]
+	name = Joe Hirn
+	email = joseph.hirn@gmail.com
