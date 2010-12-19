@@ -1,0 +1,1 @@
+/Users/jhirn/.dotfiles/bash_completion.d

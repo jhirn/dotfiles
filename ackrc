@@ -1,0 +1,11 @@
+--sort-files
+--color
+--context=1
+--follow
+--group
+--all
+--ignore-dir=vendor
+--ignore-dir=log
+--ignore-dir=logs
+--type-add
+ruby=.rake
