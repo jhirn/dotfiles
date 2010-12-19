@@ -1,2 +1,2 @@
-bash < <( curl http://github.com/jhirn/dotfiles/raw/master/remote_install.sh )
+bash < <( curl http://github.com/jhirn/dotfiles/raw/master/local_install.sh )
 
