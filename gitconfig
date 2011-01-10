@@ -5,8 +5,17 @@
   br = branch
   df = diff --color
   ci = commit
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = true
 [ui]
   color = auto
+[core]
+  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 [user]
 	name = Joe Hirn
 	email = joseph.hirn@gmail.com
