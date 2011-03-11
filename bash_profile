@@ -2,7 +2,7 @@
 
 #export USER_BASH_COMPLETION_DIR=~/.bash_completion.d
 
-if which brew && [ -f `brew --prefix`/etc/bash_completion ]; then
+if [ -f `which brew` ] && [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
 
