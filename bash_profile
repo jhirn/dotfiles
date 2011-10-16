@@ -1,10 +1,8 @@
 #!/bin/bash
 
-#export USER_BASH_COMPLETION_DIR=~/.bash_completion.d
-
-if [ -f `which brew` ] && [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
-fi
+for f in  ;do
+  source $file~/.bash_completion.d
+done
 
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
@@ -21,6 +19,4 @@ fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 
-alias ls='ls -G'
-alias ll='ls -l'
-alias up='cd ..'
+source ~/.aliases
