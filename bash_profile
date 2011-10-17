@@ -1,9 +1,13 @@
 #!/bin/bash
 
-#perforce
+#perforce -inwk machine
 P4CLIENT=jhirn
 P4EDITOR=emacs
 P4PORT=depot.iwprint.net:1666
+export MAVEN_HOME=/opt/apache-maven-3.0.3
+export JAVA_HOME=/usr/lib/jvm/java-6-sun-1.6.0.26
+export MAVEN_OPTS="-XX:MaxPermSize=512m"
+
 
 for file in `find ~/.bash_completion.d/*`
 do
@@ -32,11 +36,9 @@ fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 
+
 ##Aliases
-alias ls='ls -G'
-alias ll='ls -l'
-alias up='cd ..'
-alias ec='emacsclient'
-export MAVEN_HOME=/opt/apache-maven-3.0.3
-export JAVA_HOME=/usr/lib/jvm/java-6-sun-1.6.0.26
-export MAVEN_OPTS="-XX:MaxPermSize=512m"
+
+
+source ~/.aliases
+
