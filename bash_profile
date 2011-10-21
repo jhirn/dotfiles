@@ -37,8 +37,8 @@ fi
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 
 
+PATH=$HOME/.lein/bin:$PATH
+
 ##Aliases
-
-
 source ~/.aliases
 
