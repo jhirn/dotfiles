@@ -1,6 +1,7 @@
+
 [alias]
   st = status
-  ll = log --pretty=oneline --abbrev-commit --max-count=15
+  ll = log --pretty=oneline --abbrev-commit --max-count=50
   co = checkout
   br = branch
   df = diff --color
