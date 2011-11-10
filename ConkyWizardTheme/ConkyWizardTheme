@@ -37,7 +37,7 @@ color0 DD3A21
 minimum_size 256 1059
 gap_x 1
 gap_y 21
-alignment top_right
+alignment bottom_right
 
 lua_load ~/.ConkyWizardTheme/lua/cpufreq.lua
 
@@ -71,11 +71,12 @@ ${GOTO 36}SWAP:${GOTO 120}${swapbar 10,75}
 ${GOTO 36}${font Ubuntu:bold:size=12}${color0}Power${font}${color}
 
 ${GOTO 36}Battery:${GOTO 120}${battery_bar 10, 75} ${battery_short}
-#${GOTO 36}Voltage:${GOTO 120}${voltage_mv}
+${GOTO 36}Time Remaining:${GOTO 120}${lua battery_remaining}
+${GOTO 36}Discharge Rate:${GOTO 120}${lua conky_battery_voltage}
 
 
 ${GOTO 36}${font Ubuntu:bold:size=12}${color0}Disks${font}${color}
-
+                 
 ${GOTO 36}System (/):${GOTO 120}${fs_bar 10,75 /} ${fs_free /}
 
 ${GOTO 36}${font Ubuntu:bold:size=12}${color0}Wired Network${font}${color}
