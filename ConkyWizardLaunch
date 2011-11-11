@@ -1,2 +1,2 @@
 #!/bin/bash
-conky -c ~/.ConkyWizardTheme/ConkyWizardTheme
+sleep 8 && conky -c ~/.ConkyWizardTheme/ConkyWizardTheme
