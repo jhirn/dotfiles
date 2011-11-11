@@ -56,6 +56,7 @@ ${GOTO 36}Top Processes:${GOTO 120}${top name 1}
 ${GOTO 120}${top name 2}
 ${GOTO 120}${top name 3}
 ${GOTO 120}${top name 4}
+${GOTO 120}${top name 5}
 
 ${GOTO 36}CPU1:${GOTO 120}${cpubar cpu1 10,75} ${cpu cpu1} %
 ${GOTO 36}CPU2:${GOTO 120}${cpubar cpu2 10,75} ${cpu cpu2} %
@@ -81,17 +82,17 @@ ${GOTO 36}System (/):${GOTO 120}${fs_bar 10,75 /} ${fs_free /}
 
 ${GOTO 36}${font Ubuntu:bold:size=12}${color0}Wired Network${font}${color}
 
-${GOTO 36}Upspeed:${GOTO 120}${upspeedgraph eth0 10,75 B7B2AD B7B2AD}
-${GOTO 36}Downspeed:${GOTO 120}${downspeedgraph eth0 10,75 B7B2AD B7B2AD}
-${GOTO 36}Uploaded:${GOTO 120}${totalup eth0}
+${GOTO 36}Upspeed:${GOTO 120}${upspeedgraph eth0 10,75 B7B2AD B7B2AD} ${upspeedf eth0}k
+${GOTO 36}Downspeed:${GOTO 120}${downspeedgraph eth0 10,75 B7B2AD B7B2AD} ${downspeedf eth0}k
+${GOTO 36}Uploaded:${GOTO 120}${totalup eth0} 
 ${GOTO 36}Downloaded:${GOTO 120}${totaldown eth0}
 ${GOTO 36}Wired IP:${GOTO 120}${addr eth0}
 
 ${GOTO 36}${font Ubuntu:bold:size=12}${color0}Wireless Network${font}${color}
 
-${GOTO 36}Upspeed:${GOTO 120}${upspeedgraph wlan0 10,75 B7B2AD B72AD -t}
-${GOTO 36}Downspeed:${GOTO 120}${downspeedgraph wlan0 10,75 B7B2AD B7B2AD}
-${GOTO 36}Uploaded:${GOTO 120}${totalup wlan0}
+${GOTO 36}Upspeed:${GOTO 120}${upspeedgraph wlan0 10,75 B7B2AD B72AD -t} ${upspeedf wlan0}k
+${GOTO 36}Downspeed:${GOTO 120}${downspeedgraph wlan0 10,75 B7B2AD B7B2AD} ${downspeedf wlan0}k
+${GOTO 36}Uploaded:${GOTO 120}${totalup wlan0} 
 ${GOTO 36}Downloaded:${GOTO 120}${totaldown wlan0}
 ${GOTO 36}Wireless IP:${GOTO 120}${addr wlan0}
 
