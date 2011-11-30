@@ -1,10 +1,5 @@
 #!/bin/bash
 
-#perforce -inwk machine
-export P4CLIENT=ppm4-trunk-jhirn
-export P4USER=jhirn
-export P4EDITOR=emacs
-export P4PORT=depot.iwprint.net:1666
 export MAVEN_HOME=/opt/apache-maven-3.0.3
 export JAVA_HOME=/usr/lib/jvm/java-6-sun-1.6.0.26
 export MAVEN_OPTS="-XX:MaxPermSize=512m"
@@ -44,3 +39,6 @@ PATH=$CLOJURESCRIPT_HOME/bin:$HOME/.lein/bin:$PATH
 ##Aliases
 source ~/.aliases
 
+if [ -r ~/.machine_profile ]; then
+  source ~/.machine_profile
+fi
