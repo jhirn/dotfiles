@@ -1,13 +1,15 @@
 #!/bin/bash
 
 #perforce -inwk machine
-P4CLIENT=jhirn
-P4EDITOR=emacs
-P4PORT=depot.iwprint.net:1666
+export P4CLIENT=ppm4-trunk-jhirn
+export P4USER=jhirn
+export P4EDITOR=emacs
+export P4PORT=depot.iwprint.net:1666
 export MAVEN_HOME=/opt/apache-maven-3.0.3
 export JAVA_HOME=/usr/lib/jvm/java-6-sun-1.6.0.26
 export MAVEN_OPTS="-XX:MaxPermSize=512m"
 
+export CLOJURESCRIPT_HOME=~/src/clojurescript
 
 for file in `find ~/.bash_completion.d/*`
 do
@@ -37,7 +39,7 @@ fi
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 
 
-PATH=$HOME/.lein/bin:$PATH
+PATH=$CLOJURESCRIPT_HOME/bin:$HOME/.lein/bin:$PATH
 
 ##Aliases
 source ~/.aliases
