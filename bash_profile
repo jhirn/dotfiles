@@ -11,7 +11,6 @@ do
    . $file
 done
 
-
 if [ `which brew` ] && [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
@@ -33,8 +32,15 @@ fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 
+##RB.env
+eval "$(rbenv init -)"
+PATH=$HOME.rbenv/bin:$PATH
 
 PATH=$CLOJURESCRIPT_HOME/bin:$HOME/.lein/bin:$PATH
+
+if [[ $(uname -a | grep Darwin) ]]; then
+    PATH=/usr/local/bin:/usr/local/sbin:$PATH
+fi
 
 ##Aliases
 source ~/.aliases
