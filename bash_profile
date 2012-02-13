@@ -38,6 +38,10 @@ PATH=$HOME.rbenv/bin:$PATH
 
 PATH=$CLOJURESCRIPT_HOME/bin:$HOME/.lein/bin:$PATH
 
+if [[ $(uname -a | grep Darwin) ]]; then
+    PATH=/usr/local/bin:/usr/local/sbin:$PATH
+fi
+
 ##Aliases
 source ~/.aliases
 
