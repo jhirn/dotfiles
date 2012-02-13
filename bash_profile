@@ -29,12 +29,12 @@ if [ -f ~/.emacs.d/vendor/rsense-0.3/etc/rsense.rb ]; then
 fi
 
 ## RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+#[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 
 ##RB.env
 eval "$(rbenv init -)"
-PATH=$HOME.rbenv/bin:$PATH
+PATH=$HOME/.rbenv/bin:$PATH
 
 PATH=$CLOJURESCRIPT_HOME/bin:$HOME/.lein/bin:$PATH
 
