@@ -4,7 +4,7 @@ export MAVEN_HOME=/opt/apache-maven-3.0.3
 export JAVA_HOME=/usr/lib/jvm/java-6-sun-1.6.0.26
 export MAVEN_OPTS="-XX:MaxPermSize=512m"
 
-export CLOJURESCRIPT_HOME=~/src/clojurescript
+export CLOJURESCRIPT_HOME=~/src/clj/clojurescript
 
 for file in `find ~/.bash_completion.d/*`
 do
