@@ -33,8 +33,12 @@ fi
 #[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 
 ##RB.env
-eval "$(rbenv init -)"
-PATH=$HOME/.rbenv/bin:$PATH
+if [[ -d "$HOME/.rbenv" ]]; then
+    PATH=$HOME/.rbenv/bin:$PATH
+    eval "$(rbenv init -)"
+fi
+
+
 
 PATH=$CLOJURESCRIPT_HOME/bin:$HOME/.lein/bin:$PATH
 

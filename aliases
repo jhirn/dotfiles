@@ -1,5 +1,5 @@
 # Author.: Ole J
-# Date...: 23.03.2008agi                        
+# Date...: 23.03.2008agi
 # License: Whatever
 
 # Wraps a completion function
@@ -31,15 +31,25 @@ function $function_name {
 alias ls='ls -G'
 alias ll='ls -l'
 alias up='cd ..'
-alias ec='emacsclient'
-alias agi='sudo apt-get -y install'
-alias s=sudo
 
+alias e="emacsclient -t"
+alias ec="emacsclient -c"
+alias vim="emacsclient -t"
+alias vi="emacsclient -t"
+
+alias agi='sudo apt-get -y install'
+alias s='sudo'
+
+alias be='bundle exec'
+alias bes='bundle exec rspec'
 
 
 #completion wrappers for aliases
-make-completion-wrapper _apt_get _agi apt-get install
+make-completion-wrapper _apt_get  _agi apt-get install
 complete -o filenames -F _agi agi
 
-make-completion-wrapper _root_command _s sudo 
+make-completion-wrapper _bundler _be bundle exec
+complete -o filenames -F _be be
+
+make-completion-wrapper _root_command _s sudo
 complete -o filenames -F _s s
