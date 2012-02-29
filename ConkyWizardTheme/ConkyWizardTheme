@@ -1,12 +1,12 @@
 # Generated with Conky Wizard
 # Copyright (C) 2010 JosÃ© David Abad GarcÃ­a
 # GPL Version 3
-# 
+#
 # WARNING! All changes made in this file will be lost if the program runs again!
 
 # Default Fonts
 use_xft yes
-xftfont Ubuntu:size=10
+xftfont Ubuntu:size=9
 override_utf8_locale yes
 
 # Performance Settings
@@ -77,14 +77,14 @@ ${GOTO 36}Discharge Rate:${GOTO 120}${lua conky_battery_voltage}
 
 
 ${GOTO 36}${font Ubuntu:bold:size=12}${color0}Disks${font}${color}
-                 
+
 ${GOTO 36}System (/):${GOTO 120}${fs_bar 10,75 /} ${fs_free /}
 
 ${GOTO 36}${font Ubuntu:bold:size=12}${color0}Wired Network${font}${color}
 
 ${GOTO 36}Upspeed:${GOTO 120}${upspeedgraph eth0 10,75 B7B2AD B7B2AD} ${upspeedf eth0}k
 ${GOTO 36}Downspeed:${GOTO 120}${downspeedgraph eth0 10,75 B7B2AD B7B2AD} ${downspeedf eth0}k
-${GOTO 36}Uploaded:${GOTO 120}${totalup eth0} 
+${GOTO 36}Uploaded:${GOTO 120}${totalup eth0}
 ${GOTO 36}Downloaded:${GOTO 120}${totaldown eth0}
 ${GOTO 36}Wired IP:${GOTO 120}${addr eth0}
 
@@ -92,7 +92,7 @@ ${GOTO 36}${font Ubuntu:bold:size=12}${color0}Wireless Network${font}${color}
 
 ${GOTO 36}Upspeed:${GOTO 120}${upspeedgraph wlan0 10,75 B7B2AD B72AD -t} ${upspeedf wlan0}k
 ${GOTO 36}Downspeed:${GOTO 120}${downspeedgraph wlan0 10,75 B7B2AD B7B2AD} ${downspeedf wlan0}k
-${GOTO 36}Uploaded:${GOTO 120}${totalup wlan0} 
+${GOTO 36}Uploaded:${GOTO 120}${totalup wlan0}
 ${GOTO 36}Downloaded:${GOTO 120}${totaldown wlan0}
 ${GOTO 36}Wireless IP:${GOTO 120}${addr wlan0}
 
@@ -100,7 +100,7 @@ ${GOTO 36}Wireless IP:${GOTO 120}${addr wlan0}
 ${GOTO 36}${font Ubuntu:bold:size=12}${color0}Temperatures${font}${color}
 
 ${GOTO 36}ACPI:${GOTO 120}${acpitemp}
-${GOTO 36}CPU:${GOTO 120}${execi 4 sensors |  grep "Core 0" | cut -c18-23}, ${execi 4 sensors |  grep "Core 1" | cut -c18-23}, ${execi 4 sensors |  grep "Core 2" | cut -c18-23}, ${execi 4 sensors |  grep "Core 3" | cut -c18-23} 
+${GOTO 36}CPU:${GOTO 120}${execi 4 sensors |  grep "Core 0" | cut -c18-23}, ${execi 4 sensors |  grep "Core 1" | cut -c18-23}, ${execi 4 sensors |  grep "Core 2" | cut -c18-23}, ${execi 4 sensors |  grep "Core 3" | cut -c18-23}
 ${GOTO 36}Ati card:${GOTO 120}${execpi 4 sensors |  grep "temp1" | grep -v crit | cut -c16-23}
 ${GOTO 36}Hard disk:${GOTO 120}${execpi 4 hddtemp /dev/sda | cut -c25-29}
 
