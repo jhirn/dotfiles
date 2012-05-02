@@ -6,7 +6,7 @@
 
 # Default Fonts
 use_xft yes
-xftfont Ubuntu:size=9
+xftfont Ubuntu:size=8
 override_utf8_locale yes
 
 # Performance Settings

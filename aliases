@@ -42,6 +42,7 @@ alias s='sudo'
 
 alias be='bundle exec'
 alias bes='bundle exec rspec'
+alias berc='bundle exec rails console'
 
 
 #completion wrappers for aliases

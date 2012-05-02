@@ -1,7 +1,6 @@
-
 [alias]
   st = status
-  ll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --max-count=50
+  ll = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Cgreen(%cr) %C(bold blue)<%an> %Creset %s' --abbrev-commit --date=relative --max-count=100
   co = checkout
   br = branch
   df = diff --color
