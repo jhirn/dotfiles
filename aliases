@@ -34,16 +34,12 @@ alias up='cd ..'
 
 alias e="emacsclient -t"
 alias ec="emacsclient -c"
-alias vim="emacsclient -t"
-alias vi="emacsclient -t"
 
 alias agi='sudo apt-get -y install'
 alias s='sudo'
 
-alias be='bundle exec'
-alias bes='bundle exec rspec'
-alias berc='bundle exec rails console'
-
+alias rs='rspec'
+alias rc='rails console'
 
 #completion wrappers for aliases
 make-completion-wrapper _apt_get  _agi apt-get install
