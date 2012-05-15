@@ -15,7 +15,7 @@ if [ `which brew` ] && [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
 
-## Shell
+## Prompt
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
@@ -27,10 +27,6 @@ export RSENSE_HOME=/.emacs.d/vendor/rsense-0.3
 if [ -f ~/.emacs.d/vendor/rsense-0.3/etc/rsense.rb ]; then
     ruby ~/.emacs.d/vendor/rsense-0.3/etc/rsense.rb > ~/.rsense
 fi
-
-## RVM
-#[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-#[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 
 ##RB.env
 if [[ -d "$HOME/.rbenv" ]]; then
