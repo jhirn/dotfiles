@@ -1,37 +1,46 @@
 # load libraries
-
-def unbundled_require(gem)
-  if defined?(::Bundler)
-    spec_path = Dir.glob("#{Gem.dir}/specifications/#{gem}-*.gemspec").last
-    if spec_path.nil?
-      warn "Couldn't find #{gem}"
-      return
-    end
-    spec = Gem::Specification.load spec_path
-    begin
-      spec.activate
-    rescue LoadError => err
-      warn "Couldn't activate #{gem}: #{err}"
-      return
-    end
-  end
-
+def load_gem(gem_name, gem_require=nil, &block)
+  gem_require = gem_require || gem_name
   begin
-    require gem
-    yield if block_given?
-  rescue Exception, LoadError => err
-    warn "Couldn't load #{gem}: #{err}"
+    if unbundled_require(gem_name, gem_require)
+      yield if block_given?
+    end
+  rescue Exception => e
+    warn "Couldn't load #{gem_name}: #{e}"
   end
 end
 
+def unbundled_require(gem_name, gem_require=nil)
+  gem_require = gem_require || gem_name
+  loaded = false
+  if defined?(::Bundler)
+    Gem.path.each do |gems_path|
+      gem_path = Dir.glob("#{gems_path}/gems/#{gem_name}*").last
+      unless gem_path.nil?
+        $LOAD_PATH << "#{gem_path}/lib"
+        require gem_require
+        loaded = true
+      end
+    end
+  else
+    require gem_require
+    loaded = true
+  end
+
+  raise(LoadError, "Couldn't find #{gem_name}") unless loaded
+
+  loaded
+end
 
 require 'rubygems' unless defined? Gem
 
-unbundled_require 'ruby-nuggets'
-unbundled_require 'added_methods'
-unbundled_require 'pry'
-unbundled_require 'brice' do
-  Brice.init
-end
+load_gem 'ruby-nuggets', 'nuggets'
+load_gem 'added_methods'
+load_gem 'slop'
+load_gem 'coderay'
+load_gem 'method_source'
+load_gem 'pry'
+load_gem 'brice', 'brice/init'
+
 
 puts "Successfully loaded irbrc"
