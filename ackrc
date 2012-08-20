@@ -3,6 +3,6 @@
 --context=1
 --follow
 --group
---all-types
 --ignore-dir=log
 --ignore-dir=logs
+--ignore-dir=coverage

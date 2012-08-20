@@ -22,25 +22,25 @@ parse_git_branch() {
 
 export PS1='\[\033[01;32m\]\u@\h:\[\033[01;34m\]\w\[\033[00m\]\[\033[01;32m\]$(parse_git_branch)\[\033[00m\] \$ '
 
-##Emacs
-export RSENSE_HOME=/.emacs.d/vendor/rsense-0.3
-if [ -f ~/.emacs.d/vendor/rsense-0.3/etc/rsense.rb ]; then
-    ruby ~/.emacs.d/vendor/rsense-0.3/etc/rsense.rb > ~/.rsense
-fi
-
 ##RB.env
 if [[ -d "$HOME/.rbenv" ]]; then
     PATH=$HOME/.rbenv/bin:$PATH
     eval "$(rbenv init -)"
 fi
 
-
-
 PATH=$CLOJURESCRIPT_HOME/bin:$HOME/.lein/bin:$PATH
 
 if [[ $(uname -a | grep Darwin) ]]; then
     PATH=/usr/local/bin:/usr/local/sbin:$PATH
 fi
+
+function start_dev_tools {
+  sudo rm /var/lib/mongodb/mongod.lock
+  sudo service mongodb start
+  sudo service redis-server start
+  sudo service memcached start
+	return 0
+}
 
 ##Aliases
 source ~/.aliases
