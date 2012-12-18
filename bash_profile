@@ -25,7 +25,7 @@ export PS1='\[\033[01;32m\]\u@\h:\[\033[01;34m\]\w\[\033[00m\]\[\033[01;32m\]$(p
 ##RB.env
 if [[ -d "$HOME/.rbenv" ]]; then
     PATH=$HOME/.rbenv/bin:$PATH
-    eval "$(rbenv init -)"
+    eval "$(rbenv init - --no-rehash)"
 fi
 
 PATH=$CLOJURESCRIPT_HOME/bin:$HOME/.lein/bin:$PATH
@@ -39,7 +39,7 @@ function start_dev_tools {
   sudo service mongodb start
   sudo service redis-server start
   sudo service memcached start
-	return 0
+  return 0
 }
 
 ##Aliases
@@ -48,3 +48,6 @@ source ~/.aliases
 if [ -r ~/.machine_profile ]; then
   source ~/.machine_profile
 fi
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
