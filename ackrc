@@ -3,6 +3,11 @@
 --context=1
 --follow
 --group
+--type-set=haml=.haml
+--type-set=sass=.sass
+--type-set=scss=.scss
+--type-set=erb=.erb
+--type-set=jst=.jst
 --ignore-dir=log
 --ignore-dir=logs
 --ignore-dir=coverage
