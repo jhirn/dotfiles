@@ -5,7 +5,7 @@
   co = checkout
   br = branch
   df = diff --color
-  ci = commit
+  ci = commit -m
 [color]
   diff = auto
   status = auto

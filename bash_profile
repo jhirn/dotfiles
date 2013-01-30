@@ -34,14 +34,6 @@ if [[ $(uname -a | grep Darwin) ]]; then
     PATH=/usr/local/bin:/usr/local/sbin:$PATH
 fi
 
-function start_dev_tools {
-  sudo rm /var/lib/mongodb/mongod.lock
-  sudo service mongodb start
-  sudo service redis-server start
-  sudo service memcached start
-  return 0
-}
-
 ##Aliases
 source ~/.aliases
 
@@ -51,3 +43,46 @@ fi
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+###functions
+
+function pr {
+    local dir="$PWD"
+
+    until [[ -z "$dir" ]]; do
+        if [ -d ./.git ]; then
+            break
+        else
+            cd ..
+        fi
+        dir="${dir%/*}"
+    done
+}
+
+function tickle {
+    if [ -n "$1" ] && [ ! -f "$1" ]; then
+        path=$(dirname $1)
+        file=$(basename $1)
+
+        [ ! -d "$path" ] && mkdir -p $path
+        /usr/bin/touch "$1"
+    else
+        echo "tickle will mkdir -p and touch the file at the end of the path"
+        echo
+        echo "Usage:"
+        echo "  tickle path/to/filename.ext"
+    fi
+}
+
+function touch {
+    if [ "$1" == "-p" ]; then # fuck with the touch command
+        if [ -n "$2" ]; then
+            tickle "$2"
+        else
+            echo "Usage:"
+            echo "  touch -p /non/existent/path/to/filename.ext"
+        fi
+    else # pass through to the real touch command
+        /usr/bin/touch "$@"
+    fi
+}

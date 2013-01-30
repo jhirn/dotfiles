@@ -38,7 +38,11 @@ alias ec="emacsclient -c"
 alias agi='sudo apt-get -y install'
 alias s='sudo'
 
-alias rs='rspec'
+alias fml="foreman start -f Profile.local"
+alias ..="cd ../"
+alias ...="cd ../../"
+alias ....="cd ../../../"
+
 alias rc='rails console'
 
 #completion wrappers for aliases
