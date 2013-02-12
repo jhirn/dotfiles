@@ -38,7 +38,7 @@ alias ec="emacsclient -c"
 alias agi='sudo apt-get -y install'
 alias s='sudo'
 
-alias fml="foreman start -f Profile.local"
+alias fml="foreman start -f Procfile.local"
 alias ..="cd ../"
 alias ...="cd ../../"
 alias ....="cd ../../../"

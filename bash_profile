@@ -1,10 +1,10 @@
 #!/bin/bash
 
-export MAVEN_HOME=/opt/apache-maven-3.0.3
-export JAVA_HOME=/usr/lib/jvm/java-6-sun-1.6.0.26
 export MAVEN_OPTS="-XX:MaxPermSize=512m"
 
 export CLOJURESCRIPT_HOME=~/src/clj/clojurescript
+PATH=$CLOJURESCRIPT_HOME/bin:$PATH
+PATH=$HOME/.lein/bin:$PATH
 
 for file in `find ~/.bash_completion.d/*`
 do
@@ -28,10 +28,10 @@ if [[ -d "$HOME/.rbenv" ]]; then
     eval "$(rbenv init - --no-rehash)"
 fi
 
-PATH=$CLOJURESCRIPT_HOME/bin:$HOME/.lein/bin:$PATH
 
 if [[ $(uname -a | grep Darwin) ]]; then
-    PATH=/usr/local/bin:/usr/local/sbin:$PATH
+  export JAVA_HOME=$(/usr/libexec/java_home)
+  PATH=/usr/local/bin:/usr/local/sbin:$JAVA_HOME/bin:$PATH
 fi
 
 ##Aliases
