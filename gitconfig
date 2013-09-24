@@ -2,6 +2,7 @@
   st = status
   ll = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Cgreen(%cr) %C(bold blue)<%an> %Creset %s' --abbrev-commit --date=relative --max-count=20
   lll = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Cgreen(%cr) %C(bold blue)<%an> %Creset %s' --abbrev-commit --date=relative --max-count=200
+  llll = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Cgreen(%cr) %C(bold blue)<%an> %Creset %s' --abbrev-commit --date=relative
   co = checkout
   br = branch
   df = diff --color
@@ -25,3 +26,5 @@
 [github]
 	user = jhirn
 	oauth-token = 8247eff93ecdeaccbcd52412620bff449c4f2b64
+[push]
+	default = simple

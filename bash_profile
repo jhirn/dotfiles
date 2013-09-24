@@ -1,10 +1,22 @@
 #!/bin/bash
 
-export MAVEN_OPTS="-XX:MaxPermSize=512m"
+export PATH=/usr/local/opt/coreutils/libexec/gnubin
+export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/usr/local/sbin
+export PATH=$PATH:/usr/bin
+export PATH=$PATH:/bin
+export PATH=$PATH:/usr/sbin
+export PATH=$PATH:/sbin
 
-export CLOJURESCRIPT_HOME=~/src/clj/clojurescript
-PATH=$CLOJURESCRIPT_HOME/bin:$PATH
-PATH=$HOME/.lein/bin:$PATH
+export MAVEN_OPTS="-XX:MaxPermSize=512m"
+#export CLOJURESCRIPT_HOME=~/src/clj/clojurescript
+#export PATH=$CLOJURESCRIPT_HOME/bin:$PATH
+
+export PATH=$HOME/.lein/bin:$PATH
+export PATH=/usr/local/share/npm/bin:$PATH
+export PATH="/Applications/Racket v5.3.5/bin":$PATH
+
+export EDITOR="emacsclient -c"
 
 for file in `find ~/.bash_completion.d/*`
 do
@@ -22,17 +34,21 @@ parse_git_branch() {
 
 export PS1='\[\033[01;32m\]\u@\h:\[\033[01;34m\]\w\[\033[00m\]\[\033[01;32m\]$(parse_git_branch)\[\033[00m\] \$ '
 
-##RB.env
-if [[ -d "$HOME/.rbenv" ]]; then
-    PATH=$HOME/.rbenv/bin:$PATH
+##Rb.env
+RBENV_ROOT="$HOME/.rbenv"
+if [[ -d $RBENV_ROOT ]]; then
+    PATH=$RBENV_ROOT/bin:$PATH
     eval "$(rbenv init - --no-rehash)"
 fi
 
-
 if [[ $(uname -a | grep Darwin) ]]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
-  PATH=/usr/local/bin:/usr/local/sbin:$JAVA_HOME/bin:$PATH
+  export PATH=$JAVA_HOME/bin:$PATH
 fi
+
+export RUBY_GC_MALLOC_LIMIT=60000000
+export RUBY_FREE_MIN=200000
+export RUBY_HEAP_MIN_SLOTS=40000
 
 ##Aliases
 source ~/.aliases
@@ -45,7 +61,6 @@ fi
 export PATH="/usr/local/heroku/bin:$PATH"
 
 ###functions
-
 function pr {
     local dir="$PWD"
 
