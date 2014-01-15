@@ -1,5 +1,4 @@
 #!/bin/bash
-
 export PATH=/usr/local/opt/coreutils/libexec/gnubin
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:/usr/local/sbin
@@ -7,16 +6,16 @@ export PATH=$PATH:/usr/bin
 export PATH=$PATH:/bin
 export PATH=$PATH:/usr/sbin
 export PATH=$PATH:/sbin
-
-export MAVEN_OPTS="-XX:MaxPermSize=512m"
-#export CLOJURESCRIPT_HOME=~/src/clj/clojurescript
-#export PATH=$CLOJURESCRIPT_HOME/bin:$PATH
-
+export PATH=$PATH:~/Applications/eb/macosx/python2.7
 export PATH=$HOME/.lein/bin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
 export PATH="/Applications/Racket v5.3.5/bin":$PATH
 
-export EDITOR="emacsclient -c"
+
+
+export MAVEN_OPTS="-XX:MaxPermSize=512m"
+
+export EDITOR="emacs"
 
 for file in `find ~/.bash_completion.d/*`
 do
@@ -45,10 +44,6 @@ if [[ $(uname -a | grep Darwin) ]]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
   export PATH=$JAVA_HOME/bin:$PATH
 fi
-
-export RUBY_GC_MALLOC_LIMIT=60000000
-export RUBY_FREE_MIN=200000
-export RUBY_HEAP_MIN_SLOTS=40000
 
 ##Aliases
 source ~/.aliases

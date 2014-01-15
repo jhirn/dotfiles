@@ -39,6 +39,7 @@ alias agi='sudo apt-get -y install'
 alias s='sudo'
 
 alias fml="foreman start -f Procfile.local"
+alias v=vagrant
 alias ..="cd ../"
 alias ...="cd ../../"
 alias ....="cd ../../../"
