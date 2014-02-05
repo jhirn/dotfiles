@@ -3,12 +3,9 @@
 --context=1
 --follow
 --group
---type-set=haml=.haml
---type-set=sass=.sass
---type-set=scss=.scss
---type-set=erb=.erb
---type-set=ejs=.ejs
---type-set=jst=.jst
 --ignore-dir=log
 --ignore-dir=logs
 --ignore-dir=coverage
+--ignore-dir=tmp
+--ignore-dir=temp
+--ignore-dir=bin
