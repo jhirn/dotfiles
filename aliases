@@ -43,6 +43,9 @@ alias v=vagrant
 alias ..="cd ../"
 alias ...="cd ../../"
 alias ....="cd ../../../"
+alias .....="cd ../../../../"
+alias ......="cd ../../../../../"
+alias .......="cd ../../../../../../"
 
 alias rc='rails console'
 
