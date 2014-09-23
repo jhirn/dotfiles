@@ -1,3 +1,6 @@
+#!/bin/bash
+
+brew_installs=$(cat <<EOF
 ack
 apple-gcc42
 aspell
@@ -11,6 +14,7 @@ bdw-gc
 boost
 boot2docker
 brew-cask
+cabal-install
 cairo
 chromedriver
 cloog
@@ -34,7 +38,6 @@ gcc
 gdbm
 gdk-pixbuf
 gettext
-gfortran
 ghc
 ghostscript
 git
@@ -51,7 +54,6 @@ gtk+
 guile
 hadoop
 harfbuzz
-haskell-platform
 icu4c
 imagemagick
 intltool
@@ -102,7 +104,6 @@ phantomjs
 pinentry
 pixman
 pkg-config
-play
 postgresql
 pth
 pv
@@ -130,3 +131,41 @@ wget
 wxmac
 xclip
 xz
+EOF
+)
+
+brew_cask_installs=$(cat <<EOF
+betterzipql
+disk-inventory-x
+filezilla
+freemind
+gimp
+handbrake
+hipchat
+java
+lightpaper
+mactex
+pdftk
+pgadmin3
+qlcolorcode
+qlmarkdown
+qlprettypatch
+qlstephen
+quicklook-csv
+quicklook-json
+suspicious-package
+vagrant
+virtualbox
+webp-quicklook
+EOF
+)
+
+brew tap railwaycat/emacsmacport
+
+brew update
+brew install $brew_installs
+
+brew install caskroom/cask/brew-cask
+brew cask install $brew_cask_installs
+
+brew linkapps
