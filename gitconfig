@@ -28,3 +28,5 @@
 	oauth-token = 8247eff93ecdeaccbcd52412620bff449c4f2b64
 [push]
 	default = simple
+[heroku]
+	account = devmynd

@@ -9,10 +9,12 @@ export PATH=$PATH:/sbin
 export PATH=$PATH:~/Applications/eb/macosx/python2.7
 export PATH=$HOME/.lein/bin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
-export PATH="/Applications/Racket v5.3.5/bin":$PATH
+export PATH="/Applications/Racket v5.93/bin":$PATH
+export PATH=/usr/local/heroku/bin:$PATH
+export PATH=/usr/texbin:$PATH
+export PATH=~/.cabal/bin:$PATH
 
-
-
+#export DOCKER_HOST=tcp://$(boot2docker ip):2375
 export MAVEN_OPTS="-XX:MaxPermSize=512m"
 
 export EDITOR="emacs"
@@ -52,8 +54,6 @@ if [ -r ~/.machine_profile ]; then
   source ~/.machine_profile
 fi
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 
 ###functions
 function pr {
