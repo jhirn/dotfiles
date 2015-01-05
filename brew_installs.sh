@@ -2,7 +2,6 @@
 
 brew_installs=$(cat <<EOF
 ack
-apple-gcc42
 aspell
 atk
 autoconf
@@ -29,7 +28,6 @@ docker
 drip
 elasticsearch
 elixir
-emacs
 emacs-mac
 erlang
 fontconfig
@@ -61,7 +59,6 @@ isl
 jasper
 jbig2dec
 jpeg
-jscoverage
 libassuan
 libcroco
 libevent
@@ -82,10 +79,8 @@ libusb-compat
 libxml2
 libxslt
 little-cms2
-macvim
 markdown
 maven
-maven31
 mit-scheme
 mpfr
 mysql
@@ -110,18 +105,13 @@ pv
 python
 qcachegrind
 qt
-r
 rabbitmq
 readline
 redis
 rename
 rlwrap
 rust
-serf
 sqlite
-texmacs
-thrift
-tmux
 tree
 unixodbc
 unrar

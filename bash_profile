@@ -1,4 +1,6 @@
 #!/bin/bash
+
+
 export PATH=/usr/local/opt/coreutils/libexec/gnubin
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:/usr/local/sbin
@@ -9,15 +11,38 @@ export PATH=$PATH:/sbin
 export PATH=$PATH:~/Applications/eb/macosx/python2.7
 export PATH=$HOME/.lein/bin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
-export PATH="/Applications/Racket v5.93/bin":$PATH
 export PATH=/usr/local/heroku/bin:$PATH
 export PATH=/usr/texbin:$PATH
 export PATH=~/.cabal/bin:$PATH
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
 
-#export DOCKER_HOST=tcp://$(boot2docker ip):2375
+
+RBENV_ROOT="$HOME/.rbenv"
+if [[ -d $RBENV_ROOT ]]; then
+    PATH=$RBENV_ROOT/bin:$PATH
+    eval "$(rbenv init - --no-rehash)"
+fi
+
+if [[ $(uname -a | grep Darwin) ]]; then
+    export JAVA_HOME=$(/usr/libexec/java_home)
+    export PATH=$JAVA_HOME/bin:$PATH
+fi
+
+#######################################################
+#              End of path fuckery                    #
+#######################################################
+
 export MAVEN_OPTS="-XX:MaxPermSize=512m"
-
 export EDITOR="emacs"
+
+
+TMP=`mktemp -t bash_profile.XXXXXX`
+trap "rm $TMP* 2>/dev/null" EXIT
+
+eval $(boot2docker shellinit 2> /dev/null)
+export DOCKER_IP=192.168.59.103
+
 
 for file in `find ~/.bash_completion.d/*`
 do
@@ -35,25 +60,12 @@ parse_git_branch() {
 
 export PS1='\[\033[01;32m\]\u@\h:\[\033[01;34m\]\w\[\033[00m\]\[\033[01;32m\]$(parse_git_branch)\[\033[00m\] \$ '
 
-##Rb.env
-RBENV_ROOT="$HOME/.rbenv"
-if [[ -d $RBENV_ROOT ]]; then
-    PATH=$RBENV_ROOT/bin:$PATH
-    eval "$(rbenv init - --no-rehash)"
-fi
-
-if [[ $(uname -a | grep Darwin) ]]; then
-  export JAVA_HOME=$(/usr/libexec/java_home)
-  export PATH=$JAVA_HOME/bin:$PATH
-fi
-
 ##Aliases
 source ~/.aliases
 
 if [ -r ~/.machine_profile ]; then
   source ~/.machine_profile
 fi
-
 
 ###functions
 function pr {
