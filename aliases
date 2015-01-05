@@ -49,6 +49,8 @@ alias ......="cd ../../../../../"
 alias .......="cd ../../../../../../"
 
 alias rc='rails console'
+alias depprod='rake heroku:deploy:production'
+
 
 #completion wrappers for aliases
 make-completion-wrapper _apt_get  _agi apt-get install
