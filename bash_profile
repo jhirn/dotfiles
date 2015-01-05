@@ -37,9 +37,6 @@ export MAVEN_OPTS="-XX:MaxPermSize=512m"
 export EDITOR="emacs"
 
 
-TMP=`mktemp -t bash_profile.XXXXXX`
-trap "rm $TMP* 2>/dev/null" EXIT
-
 eval $(boot2docker shellinit 2> /dev/null)
 export DOCKER_IP=192.168.59.103
 
