@@ -34,12 +34,12 @@ fi
 #######################################################
 
 export MAVEN_OPTS="-XX:MaxPermSize=512m"
-export EDITOR="emacs"
+export EDITOR="emacs -Q"
 
-
-eval $(boot2docker shellinit 2> /dev/null)
-export DOCKER_IP=192.168.59.103
-
+export DOCKER_IP=192.168.59.104
+export DOCKER_TLS_VERIFY=0
+export DOCKER_HOST=tcp://192.168.59.104:2376
+export DOCKER_CERT_PATH=/Users/jhirn/.boot2docker/certs/boot2docker-vm
 
 for file in `find ~/.bash_completion.d/*`
 do
