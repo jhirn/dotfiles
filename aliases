@@ -52,6 +52,7 @@ alias rc='rails console'
 alias depprod='rake heroku:deploy:production'
 alias dki='eval $(boot2docker shellinit 2> /dev/null)'
 alias dku='boot2docker up'
+alias dc=docker-compose
 
 #completion wrappers for aliases
 make-completion-wrapper _apt_get  _agi apt-get install

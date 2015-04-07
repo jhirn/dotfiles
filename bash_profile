@@ -36,15 +36,16 @@ fi
 export MAVEN_OPTS="-XX:MaxPermSize=512m"
 export EDITOR="emacs -Q"
 
-export DOCKER_IP=192.168.59.104
+export DOCKER_IP=192.168.59.103
 export DOCKER_TLS_VERIFY=0
-export DOCKER_HOST=tcp://192.168.59.104:2376
+export DOCKER_HOST=tcp://192.168.59.103:2376
 export DOCKER_CERT_PATH=/Users/jhirn/.boot2docker/certs/boot2docker-vm
 
 for file in `find ~/.bash_completion.d/*`
 do
    . $file
 done
+
 
 if [ `which brew` ] && [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
@@ -104,4 +105,14 @@ function touch {
     else # pass through to the real touch command
         /usr/bin/touch "$@"
     fi
+}
+
+function forward_vm_port {
+    VBoxManage modifyvm "boot2docker-vm" --natpf1 "tcp-port$1,tcp,,$1,,$1";
+    VBoxManage modifyvm "boot2docker-vm" --natpf1 "udp-port$1,udp,,$1,,$1";
+}
+
+function unforward_vm_port {
+    VBoxManage modifyvm "boot2docker-vm" --natpf1 delete "tcp-port$1";
+    VBoxManage modifyvm "boot2docker-vm" --natpf1 delete "udp-port$1";
 }

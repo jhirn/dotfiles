@@ -18,15 +18,14 @@
   color = auto
 [core]
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	editor = emacs
-	pager = less -r
+  editor = emacs -Q
+  pager = less -r
 [user]
-	name = Joe Hirn
-	email = joseph.hirn@gmail.com
+  name = Joe Hirn
+  email = joseph.hirn@gmail.com
 [github]
-	user = jhirn
-	oauth-token = 8247eff93ecdeaccbcd52412620bff449c4f2b64
+  user = jhirn
 [push]
-	default = simple
+  default = simple
 [heroku]
-	account = devmynd
+  account = devmynd
