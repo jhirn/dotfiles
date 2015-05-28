@@ -1,36 +1,5 @@
-# Author.: Ole J
-# Date...: 23.03.2008agi
-# License: Whatever
-
-# Wraps a completion function
-# make-completion-wrapper <actual completion function> <name of new func.>
-#                         <command name> <list supplied arguments>
-# eg.
-# 	alias agi='apt-get install'
-# 	make-completion-wrapper _apt_get _apt_get_install apt-get install
-# defines a function called _apt_get_install (that's $2) that will complete
-# the 'agi' alias. (complete -F _apt_get_install agi)
-#
-function make-completion-wrapper () {
-	local function_name="$2"
-	local arg_count=$(($#-3))
-	local comp_function_name="$1"
-	shift 2
-	local function="
-function $function_name {
-	((COMP_CWORD+=$arg_count))
-	COMP_WORDS=( "$@" \${COMP_WORDS[@]:1} )
-	"$comp_function_name"
-	return 0
-}"
-	eval "$function"
-#	echo $function_name
-#	echo "$function"
-}
-
 alias ls='ls -G'
 alias ll='ls -l'
-alias up='cd ..'
 
 alias e="emacsclient -t"
 alias ec="emacsclient -c"
@@ -41,6 +10,8 @@ alias s='sudo'
 alias fml="foreman start -f Procfile.local"
 alias v=vagrant
 alias gpr="git pull --rebase"
+
+
 alias ..="cd ../"
 alias ...="cd ../../"
 alias ....="cd ../../../"
@@ -50,16 +21,19 @@ alias .......="cd ../../../../../../"
 
 alias rc='rails console'
 alias depprod='rake heroku:deploy:production'
-alias dki='eval $(boot2docker shellinit 2> /dev/null)'
+
+
+alias b2d=boot2docker
 alias dku='boot2docker up'
+
 alias dc=docker-compose
 
 #completion wrappers for aliases
-make-completion-wrapper _apt_get  _agi apt-get install
-complete -o filenames -F _agi agi
-
-make-completion-wrapper _bundler _be bundle exec
-complete -o filenames -F _be be
-
-make-completion-wrapper _root_command _s sudo
-complete -o filenames -F _s s
+#make-completion-wrapper _apt_get  _agi apt-get install
+#complete -o filenames -F _agi agi
+#
+#make-completion-wrapper _bundler _be bundle exec
+#complete -o filenames -F _be be
+#
+#make-completion-wrapper _root_command _s sudo
+#complete -o filenames -F _s s
