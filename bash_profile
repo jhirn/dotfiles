@@ -15,10 +15,12 @@ export PATH=/usr/local/heroku/bin:$PATH
 export PATH=/usr/texbin:$PATH
 export PATH=~/.cabal/bin:$PATH
 ### Added by the Heroku Toolbelt
+
 export PATH="/usr/local/heroku/bin:$PATH"
 
 
 RBENV_ROOT="$HOME/.rbenv"
+
 if [[ -d $RBENV_ROOT ]]; then
     PATH=$RBENV_ROOT/bin:$PATH
     eval "$(rbenv init - --no-rehash)"
@@ -108,11 +110,11 @@ function touch {
 }
 
 function forward_vm_port {
-    VBoxManage modifyvm "boot2docker-vm" --natpf1 "tcp-port$1,tcp,,$1,,$1";
-    VBoxManage modifyvm "boot2docker-vm" --natpf1 "udp-port$1,udp,,$1,,$1";
+    VBoxManage modifyvm "dev" --natpf1 "tcp-port$1,tcp,,$1,,$1";
+    VBoxManage modifyvm "dev" --natpf1 "udp-port$1,udp,,$1,,$1";
 }
 
 function unforward_vm_port {
-    VBoxManage modifyvm "boot2docker-vm" --natpf1 delete "tcp-port$1";
-    VBoxManage modifyvm "boot2docker-vm" --natpf1 delete "udp-port$1";
+    VBoxManage modifyvm "dev" --natpf1 delete "tcp-port$1";
+    VBoxManage modifyvm "dev" --natpf1 delete "udp-port$1";
 }

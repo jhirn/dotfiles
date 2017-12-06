@@ -34,13 +34,9 @@ end
 
 require 'rubygems' unless defined? Gem
 
-load_gem 'ruby-nuggets', 'nuggets'
-load_gem 'added_methods'
-load_gem 'slop'
-load_gem 'coderay'
-load_gem 'method_source'
-load_gem 'pry'
-load_gem 'brice', 'brice/init'
+#load_gem 'slop'
+#load_gem 'coderay'
+#load_gem 'method_source'
 
 
 puts "Successfully loaded irbrc"

@@ -21,12 +21,14 @@ alias .......="cd ../../../../../../"
 
 alias rc='rails console'
 alias depprod='rake heroku:deploy:production'
-
+alias spring-cli=/usr/local/bin/spring
 
 alias b2d=boot2docker
 alias dku='boot2docker up'
 
 alias dc=docker-compose
+alias bs="bundle exec spring"
+alias be="bundle exec"
 
 #completion wrappers for aliases
 #make-completion-wrapper _apt_get  _agi apt-get install
