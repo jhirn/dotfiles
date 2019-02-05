@@ -10,3 +10,5 @@ config/xbuild
 config/Nuget
 config/fontforge
 config/gtk-2.0
+config/configstore
+.DS_Store
