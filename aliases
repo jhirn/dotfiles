@@ -1,16 +1,7 @@
 alias ls='ls -G'
 alias ll='ls -l'
 
-alias e="emacsclient -t"
-alias ec="emacsclient -c"
-
-alias agi='sudo apt-get -y install'
-alias s='sudo'
-
-alias fml="foreman start -f Procfile.local"
-alias v=vagrant
 alias gpr="git pull --rebase"
-
 
 alias ..="cd ../"
 alias ...="cd ../../"
