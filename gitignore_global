@@ -1,3 +1,4 @@
 requests.http
 scratch.sql
 .DS_Store
+.env.local

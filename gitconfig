@@ -20,6 +20,7 @@
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
   editor = emacs -Q
   pager = less -r
+	excludesfile = /Users/jhirn/.gitignore_global
 [user]
   name = Joe Hirn
   email = joseph.hirn@gmail.com
