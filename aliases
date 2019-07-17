@@ -11,8 +11,6 @@ alias ......="cd ../../../../../"
 alias .......="cd ../../../../../../"
 
 alias rc='rails console'
-alias depprod='rake heroku:deploy:production'
-alias spring-cli=/usr/local/bin/spring
 
 alias b2d=boot2docker
 alias dku='boot2docker up'
@@ -21,12 +19,5 @@ alias dc=docker-compose
 alias bs="bundle exec spring"
 alias be="bundle exec"
 
-#completion wrappers for aliases
-#make-completion-wrapper _apt_get  _agi apt-get install
-#complete -o filenames -F _agi agi
-#
-#make-completion-wrapper _bundler _be bundle exec
-#complete -o filenames -F _be be
-#
-#make-completion-wrapper _root_command _s sudo
-#complete -o filenames -F _s s
+alias dstaging="datica -E staging"
+alias dprod="datica -E patientiq"
