@@ -8,23 +8,9 @@ export PATH=$PATH:/usr/bin
 export PATH=$PATH:/bin
 export PATH=$PATH:/usr/sbin
 export PATH=$PATH:/sbin
-export PATH=$PATH:~/Applications/eb/macosx/python2.7
-export PATH=$HOME/.lein/bin:$PATH
-export PATH=/usr/local/share/npm/bin:$PATH
-export PATH=/usr/local/heroku/bin:$PATH
-export PATH=/usr/texbin:$PATH
-export PATH=~/.cabal/bin:$PATH
-### Added by the Heroku Toolbelt
+export ASDF_DIR=(brew --prefix asdf)
 
-export PATH="/usr/local/heroku/bin:$PATH"
-
-
-RBENV_ROOT="$HOME/.rbenv"
-
-if [[ -d $RBENV_ROOT ]]; then
-    PATH=$RBENV_ROOT/bin:$PATH
-    eval "$(rbenv init - --no-rehash)"
-fi
+source $(brew --prefix asdf)/asdf.sh
 
 if [[ $(uname -a | grep Darwin) ]]; then
     export JAVA_HOME=$(/usr/libexec/java_home)
@@ -35,23 +21,12 @@ fi
 #              End of path fuckery                    #
 #######################################################
 
-export MAVEN_OPTS="-XX:MaxPermSize=512m"
 export EDITOR="emacs -Q"
-
-export DOCKER_IP=192.168.59.103
-export DOCKER_TLS_VERIFY=0
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/jhirn/.boot2docker/certs/boot2docker-vm
 
 for file in `find ~/.bash_completion.d/*`
 do
    . $file
 done
-
-
-if [ `which brew` ] && [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
-fi
 
 ## Prompt
 parse_git_branch() {
@@ -118,3 +93,6 @@ function unforward_vm_port {
     VBoxManage modifyvm "dev" --natpf1 delete "tcp-port$1";
     VBoxManage modifyvm "dev" --natpf1 delete "udp-port$1";
 }
+. $(brew --prefix asdf)/asdf.sh
+. $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"

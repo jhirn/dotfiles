@@ -20,4 +20,4 @@ alias bs="bundle exec spring"
 alias be="bundle exec"
 
 alias dstaging="datica -E staging"
-alias dprod="datica -E patientiq"
+alias dprod="datica -E production"

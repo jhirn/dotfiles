@@ -47,6 +47,7 @@ This theme is based loosely on [agnoster][agnoster].
  * Current RVM, rbenv or chruby (Ruby) version
  * Current virtualenv (Python) version
      * _If you use virtualenv, you will probably need to disable the default virtualenv prompt, since it doesn't play nice with fish: `set -x VIRTUAL_ENV_DISABLE_PROMPT 1`_
+ * Current NVM version (Nodejs) (inactive by default; see configurations in the next paragraph)
  * Abbreviated parent directory
  * Current directory, or Git or Mercurial project name
  * Current project's repo branch (<img width="16" alt="branch-glyph" src="https://cloud.githubusercontent.com/assets/53660/8768360/53ee9b58-2e32-11e5-9977-cee0063936fa.png"> master) or detached head (`➦` d0dfd9b)
@@ -72,14 +73,17 @@ set -g theme_display_git_dirty no
 set -g theme_display_git_untracked no
 set -g theme_display_git_ahead_verbose yes
 set -g theme_display_git_dirty_verbose yes
+set -g theme_display_git_stashed_verbose yes
 set -g theme_display_git_master_branch yes
 set -g theme_git_worktree_support yes
+set -g theme_use_abbreviated_branch_name yes
 set -g theme_display_vagrant yes
 set -g theme_display_docker_machine no
 set -g theme_display_k8s_context yes
 set -g theme_display_hg yes
 set -g theme_display_virtualenv no
 set -g theme_display_ruby no
+set -g theme_display_nvm yes
 set -g theme_display_user ssh
 set -g theme_display_hostname ssh
 set -g theme_display_vi no
@@ -94,11 +98,13 @@ set -g theme_avoid_ambiguous_glyphs yes
 set -g theme_powerline_fonts no
 set -g theme_nerd_fonts yes
 set -g theme_show_exit_status yes
+set -g theme_display_jobs_verbose yes
 set -g default_user your_normal_user
 set -g theme_color_scheme dark
 set -g fish_prompt_pwd_dir_length 0
 set -g theme_project_dir_length 1
 set -g theme_newline_cursor yes
+set -g theme_newline_prompt '$ '
 ```
 
 **Title options**
@@ -111,21 +117,26 @@ set -g theme_newline_cursor yes
 **Prompt options**
 
 - `theme_display_ruby`. Use `no` to completely hide all information about Ruby version. By default Ruby version displayed if there is the difference from default settings.
+- `theme_display_nvm`. If set to `yes`, will display current NVM node version.
 - `theme_display_vagrant`. This feature is disabled by default, use `yes` to display Vagrant status in your prompt. Please note that only the VirtualBox and VMWare providers are supported.
 - `theme_display_vi`. By default the vi mode indicator will be shown if vi or hybrid key bindings are enabled. Use `no` to hide the indicator, or `yes` to show the indicator.
 - `theme_display_k8s_context`. This feature is disabled by default. Use `yes` to show the current kubernetes context (`> kubectl config current-context`).
 - `theme_display_user`. If set to `yes`, display username always, if set to `ssh`, only when an SSH-Session is detected, if set to no, never.
-- `theme_display_hostname`. Same behaviour as `theme_display`.
+- `theme_display_hostname`. Same behaviour as `theme_display_user`.
+- `theme_display_sudo_user`. If set to `yes`, displays the sudo-username in a root shell. For example, when calling `sudo -s` and having this option set to `yes`, the username of the user, who called `sudo -s`, will be displayed.
 - `theme_show_exit_status`. Set this option to `yes` to have the prompt show the last exit code if it was non_zero instead of just the exclamation mark.
+- `theme_display_jobs_verbose`. If set to `yes` this option displays the number of currently running background jobs next to the percent sign.
 - `theme_git_worktree_support`. If you do any git worktree shenanigans, setting this to `yes` will fix incorrect project-relative path display. If you don't do any git worktree shenanigans, leave it disabled. It's faster this way :)
+- `theme_use_abbreviated_branch_name`. Set to `yes` to truncate git branch names in the prompt.
 - `fish_prompt_pwd_dir_length`. bobthefish respects the Fish `$fish_prompt_pwd_dir_length` setting to abbreviate the prompt path. Set to `0` to show the full path, `1` (default) to show only the first character of each parent directory name, or any other number to show up to that many characters.
 - `theme_project_dir_length`. The same as `$fish_prompt_pwd_dir_length`, but for the path relative to the current project root. Defaults to `0`; set to any other number to show an abbreviated path.
 - `theme_newline_cursor`. Use `yes` to have cursor start on a new line. By default the prompt is only one line. When working with long directories it may be preferrend to have cursor on the next line. Setting this to `clean` instead of `yes` suppresses the caret on the new line.
+- `theme_newline_prompt`. Use a custom prompt with newline cursor. By default this is the chevron right glyph or `>` when powerline fonts are disabled.
 
 **Color scheme options**
 
 | ![dark][dark]           | ![light][light]                     |
-|-------------------------|-------------------------------------|
+| ----------------------- | ----------------------------------- |
 | ![solarized][solarized] | ![solarized-light][solarized-light] |
 | ![base16][base16]       | ![base16-light][base16-light]       |
 | ![zenburn][zenburn]     | ![terminal-dark][terminal-dark]     |

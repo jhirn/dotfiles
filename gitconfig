@@ -1,12 +1,17 @@
 [alias]
+  cp = cherry-pick -x
+  cpc = -c core.editor=true cherry-pick --continue
+  cpa = cherry-pick --abort
   st = status
+  d = diff
   ll = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Cgreen(%cr) %C(bold blue)<%an> %Creset %s' --abbrev-commit --date=relative --max-count=20
   lll = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Cgreen(%cr) %C(bold blue)<%an> %Creset %s' --abbrev-commit --date=relative --max-count=200
   llll = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Cgreen(%cr) %C(bold blue)<%an> %Creset %s' --abbrev-commit --date=relative
   co = checkout
-  br = branch
-  df = diff --color
   ci = commit -m
+  cia = commit --amend --no-edit
+  rbc = -c core.editor=true rebase --continue
+  rba = rebase --abort
 [color]
   diff = auto
   status = auto
@@ -20,13 +25,11 @@
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
   editor = emacs -Q
   pager = less -r
-	excludesfile = /Users/jhirn/.gitignore_global
+  excludesfile = /Users/jhirn/.gitignore_global
 [user]
   name = Joe Hirn
   email = joseph.hirn@gmail.com
 [github]
   user = jhirn
 [push]
-  default = simple
-[heroku]
-  account = devmynd
+  default = current
