@@ -210,6 +210,12 @@ cask "sonarr"
 cask "spotify"
 cask "steam"
 cask "suspicious-package"
+
+cask "visual-studio-code"
+cask "vlc"
+cask "alfred"
+cask "google-chrome"
+cask "font-menlo-for-powerline"
 cask "transmission"
 cask "tunnelblick"
 cask "virtualbox"
@@ -228,3 +234,4 @@ mas "Pages", id: 409201541
 mas "PiPer", id: 1421915518
 mas "uBlock", id: 1385985095
 mas "Xcode", id: 497799835
+

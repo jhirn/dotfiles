@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<map name="Devices">
+		<map name="K70 RGB MK.2">
+			<binary name="LedChannelCounts">%00%00%04%00%00%00%00%00%0DQVector%3Cint%3E%00%00%00%00%00</binary>
+			<binary name="LedChannelTypes">%00%00%04%00%00%00%00%00%2CQVector%3Ccue%3A%3Adev%3A%3Amanifest%3A%3ALedChannelType%3E%00%00%00%00%00</binary>
+			<value name="UniqueDeviceId">{a91b42f1-dc7c-4612-9785-040bb96380c8}</value>
+		</map>
+		<map name="MM800RGB">
+			<value name="BrightnessLevel">100</value>
+			<value name="DeviceName">MM800 RGB POLARIS</value>
+			<value name="DpiBrightnessLevel">100</value>
+			<binary name="Layout">%00%00%04%00%00%00%00%00%1Ccue%3A%3Aglobal%3A%3AKeyboardLayout%00%00%00%00%02%001</binary>
+			<binary name="LedChannelCounts">%00%00%04%00%00%00%00%00%0DQVector%3Cint%3E%00%00%00%00%00</binary>
+			<binary name="LedChannelTypes">%00%00%04%00%00%00%00%00%2CQVector%3Ccue%3A%3Adev%3A%3Amanifest%3A%3ALedChannelType%3E%00%00%00%00%00</binary>
+			<value name="UniqueDeviceId">{dc714e08-c026-4f0a-9c5b-bbf77ad7d341}</value>
+		</map>
+	</map>
+	<value name="Language">en</value>
+	<map name="MobileServer">
+		<map name="Credentials">
+			<value name="Password">QzldVI5</value>
+			<value name="PasswordHint"></value>
+			<value name="PasswordType">1</value>
+		</map>
+		<binary name="ServerId">%00%00%00%0C%00%00%00%00%10%29y~b%7D%7D8%3CEjs%27Zw%3F7</binary>
+	</map>
+	<map name="QQControlsFileDialog">
+		<binary name="favoriteFolders">%00%00%00%09%00%00%00%00%00</binary>
+		<value name="height">0</value>
+		<value name="sidebarSplit">118.575</value>
+		<value name="sidebarVisible">true</value>
+		<value name="sidebarWidth">80</value>
+		<value name="width">0</value>
+	</map>
+	<map name="SwUpdate">
+		<value name="LastCheckDate">2020-04-17</value>
+	</map>
+</config>
