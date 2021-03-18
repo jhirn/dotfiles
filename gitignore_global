@@ -3,3 +3,4 @@ scratch.sql
 .DS_Store
 .env.local
 .sass-cache
+.log

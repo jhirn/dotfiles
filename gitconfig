@@ -1,5 +1,5 @@
 [alias]
-  cp = cherry-pick -x
+  cpx = cherry-pick -x
   cpc = -c core.editor=true cherry-pick --continue
   cpa = cherry-pick --abort
   st = status

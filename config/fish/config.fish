@@ -16,4 +16,5 @@ source ~/.aliases
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 source /usr/local/opt/asdf/asdf.fish
+
 set -g fish_user_paths "/usr/local/opt/postgresql@11/bin" $fish_user_paths
