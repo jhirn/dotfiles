@@ -1,3 +1,11 @@
 config/com.corsair
 config/deluge
 config/configstore
+config/MusicBrainz
+config/NuGet
+config/FileZilla
+config/fontforge
+config/gtk-2.0
+config/heroku
+config/xbuild
+config/stetic
