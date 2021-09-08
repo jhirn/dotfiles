@@ -88,7 +88,7 @@ brew "perl-build"
 brew "pinentry"
 brew "pkcrack"
 brew "pkg-config"
-brew "postgresql"
+brew "postgresql", restart_service: true
 brew "pth"
 brew "pv"
 brew "qcachegrind"

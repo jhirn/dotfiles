@@ -5,13 +5,12 @@ eval (/opt/homebrew/bin/brew shellenv)
 # set -g fish_user_paths "/usr/local/opt/libxml2/bin" $fish_user_paths
 set -x EDITOR "emacs -Q"
 
-set -X BREW_PREFIX (brew --prefix)
+set -x BREW_PREFIX (brew --prefix)
 
 set -x ASDF_DIR /opt/homebrew/opt/asdf #(brew --prefix asdf)
 source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
 if test -d $BREW_PREFIX/share/fish/vendor_completions.d
-  echo "completions"
   set -gx fish_complete_path $fish_complete_path $BREW_PREFIX/share/fish/vendor_completions.d
 end
 
