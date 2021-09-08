@@ -114,6 +114,8 @@ brew "xclip"
 brew "yarn"
 brew "zlib"
 
+
+
 cask "adobe-acrobat-reader"
 cask "alfred"
 cask "appzapper"
@@ -121,6 +123,7 @@ cask "caffeine"
 cask "ccmenu"
 cask "chromedriver"
 cask "commander-one"
+cask "corsair-icue"
 cask "dbvisualizer"
 cask "deluge"
 cask "dotnet"
