@@ -4,3 +4,4 @@ scratch.sql
 .env.local
 .sass-cache
 .log
+.vscode
