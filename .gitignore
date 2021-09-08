@@ -9,3 +9,4 @@ config/gtk-2.0
 config/heroku
 config/xbuild
 config/stetic
+config/omf
