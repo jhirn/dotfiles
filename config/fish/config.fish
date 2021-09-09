@@ -1,13 +1,13 @@
-eval (/opt/homebrew/bin/brew shellenv)
+set -x BREW_PREFIX /opt/homebrew # (brew --prefix)
+eval ($BREW_PREFIX/bin/brew shellenv)
+
+set -x ASDF_DIR $BREW_PREFIX/opt/asdf #(brew --prefix asdf)
 
 # Outdated as of m1
 # set -g fish_user_paths /usr/local/bin $fish_user_paths
 # set -g fish_user_paths "/usr/local/opt/libxml2/bin" $fish_user_paths
 set -x EDITOR "emacs -Q"
 
-set -x BREW_PREFIX (brew --prefix)
-
-set -x ASDF_DIR /opt/homebrew/opt/asdf #(brew --prefix asdf)
 source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
 if test -d $BREW_PREFIX/share/fish/vendor_completions.d
@@ -15,10 +15,11 @@ if test -d $BREW_PREFIX/share/fish/vendor_completions.d
 end
 
 set -x fish_user_paths $fish_user_paths /usr/local/sbin
-# Potentially outdated as of m1 (was for obscure image magick)
+
+# Potentially outdated as of m1 (was for obscure image magick7 bug)
 # set -gx PKG_CONFIG_PATH /usr/local/lib/pkgconfig
 
-# set -gx RUBY_CONFIGURE_OPTS --with-openssl-dir=/usr/local/opt/openssl@1.1 #(brew --prefix openssl@3.1)
+set -gx RUBY_CONFIGURE_OPTS --with-openssl-dir=/opt/homebrew/opt/openssl@1.1 #(brew --prefix openssl@3.1)
 
 # set -x JAVA_HOME /Library/Java/JavaVirtualMachines/openjdk-13.0.2.jdk/Contents/Home
 # (/usr/libexec/java_home -v 13)
