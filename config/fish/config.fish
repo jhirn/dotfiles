@@ -14,7 +14,7 @@ set -gx RUBY_CONFIGURE_OPTS --with-openssl-dir=$BREW_PREFIX/opt/openssl@1.1
 
 source ~/.aliases
 
-test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+test -e ~/.iterm2_shell_integration.fish ; and source ~/.iterm2_shell_integration.fish
 
 fnm env --use-on-cd | source
 
