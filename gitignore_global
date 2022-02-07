@@ -1,7 +1,9 @@
 requests.http
 scratch.sql
+scratch.rb
 .DS_Store
 .env.local
 .sass-cache
 .log
 .vscode
+solargraph_definitions.rb

@@ -1,21 +1,18 @@
 #!/bin/bash
 
+export BREW_PREFIX=/opt/homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
-export PATH=/usr/local/opt/coreutils/libexec/gnubin
-export PATH=$PATH:/usr/local/bin
-export PATH=$PATH:/usr/local/sbin
-export PATH=$PATH:/usr/bin
-export PATH=$PATH:/bin
-export PATH=$PATH:/usr/sbin
-export PATH=$PATH:/sbin
-export ASDF_DIR=(brew --prefix asdf)
+# export PATH=$PATH:/usr/bin
+# export PATH=$PATH:/bin
+# export PATH=$PATH:/usr/sbin
+# export PATH=$PATH:/sbin
+eval "$(rbenv init - bash)"
 
-source $(brew --prefix asdf)/asdf.sh
-
-if [[ $(uname -a | grep Darwin) ]]; then
-    export JAVA_HOME=$(/usr/libexec/java_home)
-    export PATH=$JAVA_HOME/bin:$PATH
-fi
+# if [[ $(uname -a | grep Darwin) ]]; then
+#     export JAVA_HOME=$(/usr/libexec/java_home)
+#     export PATH=$JAVA_HOME/bin:$PATH
+# fi
 
 #######################################################
 #              End of path fuckery                    #
@@ -42,6 +39,20 @@ if [ -r ~/.machine_profile ]; then
   source ~/.machine_profile
 fi
 
-. $(brew --prefix asdf)/asdf.sh
-. $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+[[ -r $BREW_PREFIX/etc/profile.d/bash_completion.sh ]] && . $BREW_PREFIX/etc/profile.d/bash_completion.sh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/jhirn/opt/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/jhirn/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/jhirn/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/jhirn/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

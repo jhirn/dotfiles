@@ -11,3 +11,5 @@ config/xbuild
 config/stetic
 config/omf
 config/fish/conf.d/omf.fish
+AWSVPNClient
+config/gh

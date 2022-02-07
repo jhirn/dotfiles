@@ -12,6 +12,7 @@
   cia = commit --amend --no-edit
   rbc = -c core.editor=true rebase --continue
   rba = rebase --abort
+  cached = diff --cached
 [color]
   diff = auto
   status = auto
@@ -27,9 +28,14 @@
   pager = less -r
   excludesfile = /Users/jhirn/.gitignore_global
 [user]
-  name = Joe Hirn
+	name = Joseph Hirn
   email = joseph.hirn@gmail.com
 [github]
   user = jhirn
 [push]
   default = current
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

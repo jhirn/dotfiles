@@ -2,7 +2,6 @@ tap "railwaycat/emacsmacport"
 tap "homebrew/cask-fonts"
 
 brew "ack"
-brew "asdf"
 brew "aspell"
 brew "atk"
 brew "autoconf"
@@ -113,7 +112,6 @@ brew "wget"
 brew "xclip"
 brew "yarn"
 brew "zlib"
-
 
 
 cask "adobe-acrobat-reader"
