@@ -6,7 +6,6 @@ tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "railwaycat/emacsmacport"
-
 brew "ack"
 brew "adr-tools"
 brew "openjdk"
@@ -145,7 +144,6 @@ cask "blender"
 cask "caffeine"
 cask "ccmenu"
 cask "chromedriver"
-cask "commander-one"
 cask "dbvisualizer"
 cask "deluge"
 cask "discord"
@@ -165,7 +163,6 @@ cask "handbrake"
 cask "imageoptim"
 cask "istat-menus"
 cask "iterm2"
-cask "jqbx"
 cask "licecap"
 cask "logitech-g-hub"
 cask "macdown"
@@ -199,8 +196,6 @@ cask "vlc"
 cask "wireshark"
 
 mas "1Password 7", id: 1333542190
-mas "Boom 2", id: 948176063
-mas "Cinebench", id: 1438772273
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
