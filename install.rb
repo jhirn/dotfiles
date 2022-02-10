@@ -19,15 +19,18 @@ home = File.expand_path('~')
   end
 end
 
-if (!command?("brew"))
-  puts "Installing homebrew..."
-  run_cmd('/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"')
-else
-  puts "Homebrew exists, skipping"
- end
- puts "Running Homebrew Bundle..."
+if ARGV.include?("--brew")
+  if !command?("brew")
+    puts "Installing homebrew..."
+    run_cmd('/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"')
+  else
+    puts "Homebrew exists, skipping"
+  end
+  run_cmd("brew bundle")
+  puts "Running Homebrew Bundle..."
+end
 
-run_cmd("brew bundle")
+
 
 puts "Creating Symlinks...."
 Dir['*'].each do |file|
