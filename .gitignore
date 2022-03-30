@@ -13,3 +13,4 @@ config/omf
 config/fish/conf.d/omf.fish
 AWSVPNClient
 config/gh
+config/Autodesk/

@@ -11,6 +11,9 @@ alias ......="cd ../../../../../"
 alias .......="cd ../../../../../../"
 
 alias rc='rails console'
+alias rca='bin/rubocop -a'
+alias rcA='bin/rubocop -A'
+
 
 alias b2d=boot2docker
 alias dku='boot2docker up'
@@ -19,5 +22,4 @@ alias dc=docker-compose
 alias bs="bundle exec spring"
 alias be="bundle exec"
 
-alias dstaging="datica -E staging"
-alias dprod="datica -E production"
+alias frozen_string_literal="be rubocop -A --only Style/FrozenStringLiteralComment"

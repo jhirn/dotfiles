@@ -20,6 +20,10 @@
   interactive = auto
   ui = true
   pager = true
+[diff]
+  tool = vscode
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
 [ui]
   color = auto
 [core]
