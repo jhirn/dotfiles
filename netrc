@@ -1,0 +1,6 @@
+machine api.heroku.com
+  login joseph.hirn@gmail.com
+  password 60f0ad0b-41b9-407c-a683-8d33915f1de4
+machine git.heroku.com
+  login joseph.hirn@gmail.com
+  password 60f0ad0b-41b9-407c-a683-8d33915f1de4

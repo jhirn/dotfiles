@@ -1,0 +1,33 @@
+
+Host production_utility
+  IdentityFile ~/.ssh/id_rsa
+  HostName  172.31.26.64
+  User joehirn8101
+
+Host staging_utility
+  IdentityFile  ~/.ssh/id_rsa
+  HostName 172.31.64.48
+  User joehirn8101
+
+Host feature2_utility
+  IdentityFile  ~/.ssh/jhirn_tflow.pem
+  HostName 172.31.23.170
+  User ubuntu
+
+Host
+  AddKeysToAgent yes
+  #UseKeychain yes
+  IdentityFile ~/.ssh/id_rsa
+
+Host demo_utility
+  IdentityFile  ~/.ssh/jhirn_tflow.pem
+  HostName 34.218.228.172
+  User ubuntu
+
+Host feature3_utility
+  IdentityFile  ~/.ssh/id_rsa
+  HostName 172.31.64.42
+  User joehirn8101
+
+Host *
+	IdentityAgent ".1password.agent.sock"

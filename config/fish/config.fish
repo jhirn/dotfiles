@@ -1,4 +1,6 @@
 set -x BREW_PREFIX /opt/homebrew # (brew --prefix)
+set -x HOMEBREW_BUNDLE_FILE ~/.Brewfile
+
 eval ($BREW_PREFIX/bin/brew shellenv)
 
 status --is-interactive; and rbenv init - fish | source
@@ -25,8 +27,4 @@ fnm env --use-on-cd | source
 # set -g fish_user_paths /usr/local/bin $fish_user_paths
 # set -g fish_user_paths "/usr/local/opt/libxml2/bin" $fish_user_paths
 
-# set -x RUBOCOP_DAEMON_USE_BUNDLER true
-# fish_add_path -a '/usr/local/bin/rubocop-daemon-wrapper'
-# set -x JAVA_HOME /Library/Java/JavaVirtualMachines/openjdk-13.0.2.jdk/Contents/Home
-# (/usr/libexec/java_home -v 13)
 fish_add_path /opt/homebrew/opt/openjdk/bin
