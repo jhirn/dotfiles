@@ -1,14 +1,11 @@
-Host *
-  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-
 Host production_utility
-  IdentityFile ~/.ssh/id_rsa
   HostName  172.31.26.64
   User joehirn8101
+  IdentityFile  ~/.ssh2/id_rsa
 
 Host staging_utility
   IdentityFile  ~/.ssh/id_rsa
-  HostName 172.31.64.48
+  HostName 172.31.64.157
   User joehirn8101
 
 Host feature2_utility
@@ -25,3 +22,6 @@ Host feature3_utility
   IdentityFile  ~/.ssh/id_rsa
   HostName 172.31.64.42
   User joehirn8101
+
+Host *
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"

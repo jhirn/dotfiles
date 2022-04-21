@@ -830,10 +830,10 @@ function __bobthefish_prompt_rubies -S -d 'Display current Ruby information'
         set -l asdf_current_ruby (asdf current ruby 2>/dev/null)
         or return
 
-        echo "$asdf_current_ruby" | read -l asdf_ruby_version asdf_provenance
+        echo "$asdf_current_ruby" | read -l _asdf_plugin asdf_ruby_version asdf_provenance
 
         # If asdf changes their ruby version provenance format, update this to match
-        [ (string trim -- "$asdf_provenance") = "(set by $HOME/.tool-versions)" ]
+        [ (string trim -- "$asdf_provenance") = "$HOME/.tool-versions" ]
         and return
 
         set ruby_version $asdf_ruby_version
@@ -895,9 +895,42 @@ function __bobthefish_prompt_desk -S -d 'Display current desk environment'
     set_color normal
 end
 
+function __bobthefish_prompt_find_file_up -S -d 'Find file(s), going up the parent directories'
+    set -l dir "$argv[1]"
+    set -l files $argv[2..]
+
+    if test -z "$dir"
+        or test -z "$files"
+        return 1
+    end
+
+    while [ "$dir" ]
+        for f in $files
+            if [ -e "$dir/$f" ]
+                return
+            end
+        end
+
+        [ "$dir" = '/' ]
+        and return 1
+
+        set dir (__bobthefish_dirname "$dir")
+    end
+    return 1
+end
+
 function __bobthefish_prompt_node -S -d 'Display current node version'
-    [ "$theme_display_node" = 'yes' -o "$theme_display_nvm" = 'yes' ]
-    or return
+    set -l should_show
+
+    if [ "$theme_display_node" = 'always' -o "$theme_display_nvm" = 'yes' ]
+        set should_show 1
+    else if [ "$theme_display_node" = 'yes' ]
+        __bobthefish_prompt_find_file_up "$PWD" package.json .nvmrc .node-version
+        and set should_show 1
+    end
+
+    [ -z "$should_show" ]
+    and return
 
     set -l node_manager
     set -l node_manager_dir
