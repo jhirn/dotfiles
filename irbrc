@@ -1,42 +1,18 @@
-# load libraries
-def load_gem(gem_name, gem_require=nil, &block)
-  gem_require = gem_require || gem_name
-  begin
-    if unbundled_require(gem_name, gem_require)
-      yield if block_given?
-    end
-  rescue Exception => e
-    warn "Couldn't load #{gem_name}: #{e}"
-  end
+require 'irb/completion'
+require 'rubygems'
+ActiveRecord::Base.logger.level = 1 if defined?(ActiveRecord)
+IRB.conf[:SAVE_HISTORY] = 10000
+
+def bm
+  # From http://blog.evanweaver.com/articles/2006/12/13/benchmark/
+  # Call benchmark { } with any block and you get the wallclock runtime
+  # as well as a percent change + or - from the last run
+  cur = Time.now
+  result = yield
+  print "#{cur = Time.now - cur} seconds"
+  puts " (#{(cur / $last_benchmark * 100).to_i - 100}% change)" rescue puts ""
+  $last_benchmark = cur
+  result
 end
-
-def unbundled_require(gem_name, gem_require=nil)
-  gem_require = gem_require || gem_name
-  loaded = false
-  if defined?(::Bundler)
-    Gem.path.each do |gems_path|
-      gem_path = Dir.glob("#{gems_path}/gems/#{gem_name}*").last
-      unless gem_path.nil?
-        $LOAD_PATH << "#{gem_path}/lib"
-        require gem_require
-        loaded = true
-      end
-    end
-  else
-    require gem_require
-    loaded = true
-  end
-
-  raise(LoadError, "Couldn't find #{gem_name}") unless loaded
-
-  loaded
-end
-
-require 'rubygems' unless defined? Gem
-
-#load_gem 'slop'
-#load_gem 'coderay'
-#load_gem 'method_source'
-
 
 puts "Successfully loaded irbrc"
