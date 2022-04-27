@@ -1,0 +1,43 @@
+name: Set as Executable and Generate Documentation
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  scriptCommands:
+    runs-on: macos-11
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Setup Xcode
+        uses: raycast/github-actions/setup-xcode@master
+
+      - name: Setup GIT
+        uses: raycast/github-actions/setup-git@v1.1.0
+        
+      - name: Build Toolkit
+        run: |
+          make build
+
+      - name: Check and adjust scripts
+        run: |
+          make set-executable-and-commit
+
+      - name: Generate Script Commands Documentation
+        run: |
+          make gen-docs-and-commit
+
+      - name: Rebase
+        if: success()
+        run: git pull origin ${{ github.ref }} --autostash --rebase -X ours
+
+      - name: Push
+        if: success()
+        uses: ad-m/github-push-action@master
+        with:
+          branch: ${{ github.ref }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
