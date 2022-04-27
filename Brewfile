@@ -192,6 +192,5 @@ cask "visual-studio-code"
 cask "vlc"
 cask "wireshark"
 
-mas "1Password 7", id: 1333542190
 mas "Keynote", id: 409183694
 mas "Xcode", id: 497799835
