@@ -3,6 +3,7 @@ set -x HOMEBREW_BUNDLE_FILE ~/.Brewfile
 
 eval ($BREW_PREFIX/bin/brew shellenv)
 
+
 status --is-interactive; and rbenv init - fish | source
 
 set -x EDITOR "code"
@@ -12,7 +13,7 @@ if test -d $BREW_PREFIX/share/fish/vendor_completions.d
 end
 
 set -x fish_user_paths $fish_user_paths /usr/local/sbin
-set -gx RUBY_CONFIGURE_OPTS --with-openssl-dir=$BREW_PREFIX/opt/openssl@1.1
+set -gx RUBY_CONFIGURE_OPTS --with-openssl-dir=$BREW_PREFIX/opt/openssl@1.1 --with-jemalloc
 
 source ~/.aliases
 
