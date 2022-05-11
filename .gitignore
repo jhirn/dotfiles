@@ -15,4 +15,4 @@ AWSVPNClient
 config/gh
 config/Autodesk/
 config/op
-ssh/**/*
+ssh
