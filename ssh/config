@@ -8,6 +8,11 @@ Host staging_utility
   HostName 172.31.64.157
   User joehirn8101
 
+Host qa_utility
+  IdentityFile  ~/.ssh/id_rsa
+  HostName 172.31.27.173
+  User joehirn8101
+
 Host feature2_utility
   IdentityFile  ~/.ssh/jhirn_tflow.pem
   HostName 172.31.23.170
@@ -20,7 +25,7 @@ Host demo_utility
 
 Host feature3_utility
   IdentityFile  ~/.ssh/id_rsa
-  HostName 172.31.64.42
+  HostName 172.31.64.60
   User joehirn8101
 
 Host *

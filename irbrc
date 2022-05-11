@@ -1,8 +1,7 @@
-require 'irb/completion'
 require 'rubygems'
 ActiveRecord::Base.logger.level = 1 if defined?(ActiveRecord)
 IRB.conf[:SAVE_HISTORY] = 10000
-
+IRB.conf[:USE_AUTOCOMPLETE] = true
 def bm
   # From http://blog.evanweaver.com/articles/2006/12/13/benchmark/
   # Call benchmark { } with any block and you get the wallclock runtime
