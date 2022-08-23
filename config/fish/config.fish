@@ -8,9 +8,16 @@ status --is-interactive; and rbenv init - fish | source
 
 set -x EDITOR "code"
 
-if test -d $BREW_PREFIX/share/fish/vendor_completions.d
-  set -gx fish_complete_path $fish_complete_path $BREW_PREFIX/share/fish/vendor_completions.d
-end
+# if test -d $BREW_PREFIX/share/fish/completions
+#     set -gx fish_complete_path $fish_complete_path $BREW_PREFIX/share/fish/completions
+# end
+
+# if test -d $BREW_PREFIX/share/fish/vendor_completions.d
+
+#   set -gx fish_complete_path $fish_complete_path $BREW_PREFIX/share/fish/vendor_completions.d
+# end
+
+
 
 set -x fish_user_paths $fish_user_paths /usr/local/sbin
 set -gx RUBY_CONFIGURE_OPTS --with-openssl-dir=$BREW_PREFIX/opt/openssl@1.1 --with-jemalloc
@@ -29,7 +36,7 @@ fnm env --use-on-cd | source
 # set -g fish_user_paths "/usr/local/opt/libxml2/bin" $fish_user_paths
 
 fish_add_path /opt/homebrew/opt/openjdk/bin
-complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
+# complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
 
 
 set -g theme_display_node yes
