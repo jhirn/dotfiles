@@ -21,5 +21,6 @@ alias dku='boot2docker up'
 alias dc=docker-compose
 alias bs="bundle exec spring"
 alias be="bundle exec"
+alias tf="terraform"
 
 alias frozen_string_literal="be rubocop -A --only Style/FrozenStringLiteralComment"

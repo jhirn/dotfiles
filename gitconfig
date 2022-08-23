@@ -7,12 +7,14 @@
   ll = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Cgreen(%cr) %C(bold blue)<%an> %Creset %s' --abbrev-commit --date=relative --max-count=20
   lll = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Cgreen(%cr) %C(bold blue)<%an> %Creset %s' --abbrev-commit --date=relative --max-count=200
   llll = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Cgreen(%cr) %C(bold blue)<%an> %Creset %s' --abbrev-commit --date=relative
+  lr=log --graph --pretty=format:'%C(yellow)%d%Creset%Cred%h%Creset - %C(bold blue) %an %Creset %s' --abbrev-commit --date=relative --max-count=20
   co = checkout
   ci = commit -m
   cia = commit --amend --no-edit
   rbc = -c core.editor=true rebase --continue
   rba = rebase --abort
   cached = diff --cached
+	find-file = "!for branch in $(git for-each-ref --format=\"%(refname)\" refs/heads); do if git ls-tree -r --name-only $branch | grep \"$1\" > /dev/null; then  echo \"${branch}:\"; git ls-tree -r --name-only $branch | nl -bn -w3 | grep \"$1\"; fi; done; :"
 [color]
   diff = auto
   status = auto

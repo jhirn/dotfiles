@@ -1,6 +1,7 @@
 requests.http
 scratch.sql
 scratch.rb
+scratch.md
 .DS_Store
 .env.local
 .sass-cache

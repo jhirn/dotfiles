@@ -33,7 +33,7 @@ function __bobthefish_colors -S -a color_scheme -d 'Define colors used by bobthe
       set -x color_username                 white black --bold
       set -x color_hostname                 white black
       set -x color_rvm                      brmagenta $colorfg --bold
-      set -x color_node                     brgreen $colorfg --bold
+      set -x color_node                     brblue $colorfg --bold
       set -x color_virtualfish              brblue $colorfg --bold
       set -x color_virtualgo                brblue $colorfg --bold
       set -x color_desk                     brblue $colorfg --bold
@@ -138,7 +138,7 @@ function __bobthefish_colors -S -a color_scheme -d 'Define colors used by bobthe
       set -x color_username                 grey black --bold
       set -x color_hostname                 grey black
       set -x color_rvm                      brmagenta $colorfg --bold
-      set -x color_node                     brgreen $colorfg --bold
+      set -x color_node                     brblue $colorfg --bold
       set -x color_virtualfish              brblue $colorfg --bold
       set -x color_virtualgo                brblue $colorfg --bold
       set -x color_desk                     brblue $colorfg --bold
@@ -179,7 +179,7 @@ function __bobthefish_colors -S -a color_scheme -d 'Define colors used by bobthe
       set -x color_username                 $grey $blue --bold
       set -x color_hostname                 $grey $blue
       set -x color_rvm                      $red $grey --bold
-      set -x color_node                     $green $white --bold
+      set -x color_node                     brblue $white --bold
       set -x color_virtualfish              $blue $grey --bold
       set -x color_virtualgo                $blue $grey --bold
       set -x color_desk                     $blue $grey --bold
@@ -619,7 +619,7 @@ function __bobthefish_colors -S -a color_scheme -d 'Define colors used by bobthe
       set -x color_username                 $grey[1] $blue[3] --bold
       set -x color_hostname                 $grey[1] $blue[3]
       set -x color_rvm                      $ruby_red $grey[1] --bold
-      set -x color_node                     $green[1] $white --bold
+      set -x color_node                     brblue $white --bold
       set -x color_virtualfish              $blue[2] $grey[1] --bold
       set -x color_virtualgo                $go_blue $black --bold
       set -x color_desk                     $blue[2] $grey[1] --bold

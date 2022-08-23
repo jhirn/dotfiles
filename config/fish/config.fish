@@ -30,3 +30,7 @@ fnm env --use-on-cd | source
 
 fish_add_path /opt/homebrew/opt/openjdk/bin
 complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
+
+
+set -g theme_display_node yes
+source ~/.local.fish
