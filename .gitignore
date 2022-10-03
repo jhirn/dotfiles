@@ -16,3 +16,4 @@ config/gh
 config/Autodesk/
 config/op
 ssh
+netrc
