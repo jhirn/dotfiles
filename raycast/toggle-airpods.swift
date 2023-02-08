@@ -17,7 +17,7 @@
 import IOBluetooth
 
 // Get your device's MAC address by option (⌥) + clicking the bluetooth icon in the menu bar
-let deviceAddress = "90:9C:4A:E6:A3:B9"
+let deviceAddress = "90-9C-4A-E6-A3-B9"
 
 func toggleAirPods() {
     guard let bluetoothDevice = IOBluetoothDevice(addressString: deviceAddress) else {
@@ -31,7 +31,7 @@ func toggleAirPods() {
     }
 
     if bluetoothDevice.isConnected() {
-        print("AirPods Disconnected")
+        print("AirPods would have disconnected, if this script worked....")
         bluetoothDevice.closeConnection()
     } else {
         print("AirPods Connected")
