@@ -25,6 +25,7 @@
   pager = true
 [diff]
   tool = vscode
+	wsErrorHighlight = all
 [difftool "vscode"]
   cmd = code --wait --diff $LOCAL $REMOTE
 [ui]
