@@ -1,5 +1,0 @@
-# Ignore directory contents
-*
-# Except for
-!.gitignore
-!README.md
