@@ -1,7 +1,13 @@
 require 'rubygems'
-ActiveRecord::Base.logger.level = 1 if defined?(ActiveRecord)
+
+unless defined?(ActiveRecord)
+#  ActiveRecord::Base.logger = ActiveSupport::Logger.new(STDOUT) if defined?(ActiveRecord)
+  ActiveRecord::Base.logger.level = 1 if defined?(ActiveRecord)
+end
+
 IRB.conf[:SAVE_HISTORY] = 10000
-IRB.conf[:USE_AUTOCOMPLETE] = true
+IRB.conf[:USE_AUTOCOMPLETE] = false
+
 def bm
   # From http://blog.evanweaver.com/articles/2006/12/13/benchmark/
   # Call benchmark { } with any block and you get the wallclock runtime
@@ -15,3 +21,4 @@ def bm
 end
 
 puts "Successfully loaded irbrc"
+IRB.conf[:USE_AUTOCOMPLETE] = false

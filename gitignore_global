@@ -8,4 +8,4 @@ scratch.md
 .log
 .vscode
 solargraph_definitions.rb
-config/initializers/postgres_database_tasks.rb
+.blueprint*.json
