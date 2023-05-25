@@ -30,17 +30,8 @@ if ARGV.include?("--brew")
   puts "Running Homebrew Bundle..."
 end
 
-
-
-puts "Creating Symlinks...."
-Dir['*'].each do |file|
-  next if file =~ /install|README/
-  target = File.join(home, ".#{file}")
-  unless File.exists?(target)
-    puts "Creating #{target}"
-    run_cmd("ln -s #{File.expand_path file} #{target}")
-  end
-end
+ln -s ./backup/.mackup.cfg ~/.mackup.cfg
+mackup restore
 
 puts "Running OSX applescript settings..."
 run_cmd("./osxsettings.applescript")
