@@ -230,5 +230,5 @@
     "semanticHighlighting": true,
     "completion": true,
     "codeLens": false
-  },
+  }
 }
