@@ -1,5 +1,6 @@
 #!/usr/bin/ruby
 require "Open3"
+require 'fileutils'
 home = File.expand_path('~')
 
  def command?(command)
@@ -26,7 +27,8 @@ if ARGV.include?("--brew")
   else
     puts "Homebrew exists, skipping"
   end
-  run_cmd("brew install mackup")
+  run_cmd("brew install mackup fish")
 end
 
+FileUtils.ln_s("./mackup.cfg", "~/.mackup.cfg")
 run_cmd("mackup restore -f")

@@ -1,5 +1,3 @@
-status --is-interactive; and rbenv init - fish | source
-
 set -x BREW_PREFIX /opt/homebrew # (brew --prefix)
 set -x HOMEBREW_BUNDLE_FILE ~/.Brewfile
 set -x EDITOR "code"
@@ -11,6 +9,7 @@ fish_add_path /usr/local/sbin
 
 eval ($BREW_PREFIX/bin/brew shellenv)
 
+status --is-interactive; and rbenv init - fish | source
 test -e ~/.iterm2_shell_integration.fish ; and source ~/.iterm2_shell_integration.fish
 test -e ~/.local.fish ; and source ~/.local.fish
 test -e ~/.aliases ; and source ~/.aliases
