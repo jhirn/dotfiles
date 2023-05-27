@@ -9,7 +9,7 @@ home = File.expand_path('~')
  def run_cmd(cmd)
   Open3.popen2e(cmd) do |stdin, stdout_stderr, wait_thread|
     Thread.new do
-      stdout_stderr.each {|l| puts l }
+      stdout_stderr.each { |l| puts l }
     end
 
     stdin.puts 'ls'
@@ -26,12 +26,7 @@ if ARGV.include?("--brew")
   else
     puts "Homebrew exists, skipping"
   end
-  run_cmd("brew bundle")
-  puts "Running Homebrew Bundle..."
+  run_cmd("brew install mackup")
 end
 
-ln -s ./backup/.mackup.cfg ~/.mackup.cfg
-mackup restore
-
-puts "Running OSX applescript settings..."
-run_cmd("./osxsettings.applescript")
+run_cmd("mackup restore -f")
