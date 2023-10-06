@@ -230,5 +230,9 @@
     "semanticHighlighting": true,
     "completion": true,
     "codeLens": false
-  }
+  },
+  "[plist]": {},
+  "settingsSync.keybindingsPerPlatform": false,
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "editor.columnSelection": true,
 }

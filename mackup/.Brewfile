@@ -109,7 +109,7 @@ brew "pandoc"
 brew "perl-build"
 brew "pkcrack"
 brew "qt"
-brew "postgresql@12", restart_service: true, link: true
+brew "postgresql", restart_service: true, link: true
 brew "pth"
 brew "pv"
 brew "qcachegrind"
@@ -192,3 +192,4 @@ cask "vlc"
 
 mas "Keynote", id: 409183694
 mas "Xcode", id: 497799835
+mas "WireGuard", id: 1451685025
