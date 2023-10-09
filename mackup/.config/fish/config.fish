@@ -2,7 +2,7 @@ set -x BREW_PREFIX /opt/homebrew # (brew --prefix)
 set -x HOMEBREW_BUNDLE_FILE ~/.Brewfile
 set -x EDITOR "code"
 
-set -gx RUBY_CONFIGURE_OPTS --with-openssl-dir=$BREW_PREFIX/opt/openssl@1.1 --with-jemalloc
+set -gx RUBY_CONFIGURE_OPTS --with-openssl-dir=$BREW_PREFIX/opt/openssl@1.1
 set -g theme_display_node yes
 
 fish_add_path /usr/local/sbin

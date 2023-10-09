@@ -235,4 +235,51 @@
   "settingsSync.keybindingsPerPlatform": false,
   "editor.unicodeHighlight.nonBasicASCII": false,
   "editor.columnSelection": true,
+  "code-for-ibmi.connections": [
+    {
+      "name": "Local",
+      "host": "localhost",
+      "port": 50000,
+      "username": "db2inst1"
+    }
+  ],
+  "code-for-ibmi.connectionSettings": [
+    {
+      "name": "Local",
+      "host": "",
+      "objectFilters": [],
+      "libraryList": [],
+      "autoClearTempData": false,
+      "customVariables": [],
+      "connectionProfiles": [],
+      "commandProfiles": [],
+      "ifsShortcuts": [],
+      "autoSortIFSShortcuts": false,
+      "homeDirectory": ".",
+      "enableSQL": true,
+      "tempLibrary": "ILEDITOR",
+      "tempDir": "/tmp",
+      "currentLibrary": "",
+      "sourceASP": "",
+      "sourceFileCCSID": "*FILE",
+      "autoConvertIFSccsid": false,
+      "hideCompileErrors": [],
+      "enableSourceDates": false,
+      "sourceDateMode": "diff",
+      "sourceDateGutter": false,
+      "encodingFor5250": "default",
+      "terminalFor5250": "default",
+      "setDeviceNameFor5250": false,
+      "connectringStringFor5250": "localhost",
+      "autoSaveBeforeAction": false,
+      "showDescInLibList": false,
+      "debugCertDirectory": "/QIBM/ProdData/IBMiDebugService/bin/certs",
+      "debugPort": "8005",
+      "debugIsSecure": false,
+      "debugUpdateProductionFiles": false,
+      "debugEnableDebugTracing": false,
+      "readOnlyMode": false,
+      "quickConnect": true
+    }
+  ],
 }
