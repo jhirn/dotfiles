@@ -31,5 +31,5 @@ if ARGV.include?("--brew")
 end
 
 File.read("/etc/shells").include?("#{`brew --prefix`.chomp}/bin/fish")
-FileUtils.ln_s("./mackup.cfg", "~/.mackup.cfg")
+FileUtils.ln_s("./mackup/.mackup.cfg", "~/.mackup.cfg")
 run_cmd("mackup restore -f")
