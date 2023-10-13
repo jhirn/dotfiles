@@ -19,6 +19,12 @@ fnm env --use-on-cd | source
 # Potentially outdated as of m1 (was for obscure image magick7 bug)
 # set -gx PKG_CONFIG_PATH /usr/local/lib/pkgconfig
 
+# SDKMAN!
+fish_add_path -m /Users/jhirn/.sdkman/candidates/java/current/bin
+
+# Intellij!
+fish_add_path "/Applications/IntelliJ IDEA CE.app/Contents/MacOS"
+
 # Deep competion for aws-cli
 complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
 
