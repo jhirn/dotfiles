@@ -2,6 +2,8 @@ requests.http
 scratch.sql
 scratch.rb
 scratch.md
+scratch.txt
+scratch.js
 .DS_Store
 .env.local
 .sass-cache
