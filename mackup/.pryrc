@@ -22,6 +22,14 @@ Pry.config.ls.private_method_color = :bright_black
 # end
 
 module Kernel
+
+  if defined?(QueryCount)
+    def with_query_count
+      QueryCount::Counter.reset_counter
+      yield
+      puts "Number of queries executed: QueryCount::Counter.counter"
+    end
+  end
   def lc
     caller.grep(/#{Rails.root}/)
   end

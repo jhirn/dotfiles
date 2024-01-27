@@ -11,3 +11,4 @@ scratch.js
 .vscode
 solargraph_definitions.rb
 .blueprint*.json
+heroku.rake
