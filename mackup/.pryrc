@@ -41,8 +41,6 @@ class StandardError
   end
 end
 
-puts "Successfully loaded ~/.pryrc"
-
 def bm
   # From http://blog.evanweaver.com/articles/2006/12/13/benchmark/
   # Call benchmark { } with any block and you get the wallclock runtime
@@ -54,3 +52,5 @@ def bm
   $last_benchmark = cur
   result
 end
+
+puts "Successfully loaded ~/.pryrc"

@@ -20,5 +20,40 @@ def bm
   result
 end
 
-puts "Successfully loaded irbrc"
 IRB.conf[:USE_AUTOCOMPLETE] = false
+
+
+if defined?(QueryCount)
+  def with_query_count
+    QueryCount::Counter.reset_counter
+    yield
+    puts "Number of queries executed: #{QueryCount::Counter.counter}"
+  end
+end
+
+module Kernel
+  def lc
+    caller.grep(/#{Rails.root}/)
+  end
+end
+
+class StandardError
+  def lt
+    backtrace.grep(/#{Rails.root}/)
+  end
+end
+
+
+def bm
+  # From http://blog.evanweaver.com/articles/2006/12/13/benchmark/
+  # Call benchmark { } with any block and you get the wallclock runtime
+  # as well as a percent change + or - from the last run
+  cur = Time.now
+  result = yield
+  print "#{cur = Time.now - cur} seconds"
+  puts " (#{(cur / $last_benchmark * 100).to_i - 100}% change)" rescue puts ""
+  $last_benchmark = cur
+  result
+end
+
+puts "Successfully loaded ~/.irbrc"

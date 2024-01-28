@@ -14,8 +14,7 @@ test -e ~/.iterm2_shell_integration.fish ; and source ~/.iterm2_shell_integratio
 test -e ~/.local.fish ; and source ~/.local.fish
 test -e ~/.aliases ; and source ~/.aliases
 
-fnm env --use-on-cd | source
-
+fnm env --use-on-cd | source # fast node manager switching.
 # Potentially outdated as of m1 (was for obscure image magick7 bug)
 # set -gx PKG_CONFIG_PATH /usr/local/lib/pkgconfig
 
