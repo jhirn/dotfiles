@@ -20,6 +20,29 @@ def bm
   result
 end
 
+def with_profiler
+  require 'ruby-prof'
+  require 'ruby-prof-flamegraph'
+  RubyProf.start
+  result = yield
+  profiler = RubyProf.stop
+
+  base_dir = "tmp/ruby_prof/#{Time.now.to_i}"
+  FileUtils.mkdir_p(base_dir)
+  File.open("#{base_dir}/graph.html", 'w+') do |file|
+    RubyProf::GraphHtmlPrinter.new(profiler).print(file)
+  end
+  File.open("#{base_dir}/call_stack.html", 'w+') do |file|
+    RubyProf::CallStackPrinter.new(profiler).print(file)
+  end
+  File.open("#{base_dir}/flame_graph.txt", 'w+') do |file|
+    RubyProf::FlameGraphPrinter.new(profiler).print(file)
+  end
+  `flamegraph.pl --countname=ms --width=1600 #{base_dir}/flame_graph.txt > #{base_dir}/flame_graph.svg`
+  puts "Profile written to #{base_dir}"
+  result
+end
+
 IRB.conf[:USE_AUTOCOMPLETE] = false
 
 
