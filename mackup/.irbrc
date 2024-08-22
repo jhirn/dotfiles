@@ -4,9 +4,8 @@ unless defined?(ActiveRecord)
 #  ActiveRecord::Base.logger = ActiveSupport::Logger.new(STDOUT) if defined?(ActiveRecord)
   ActiveRecord::Base.logger.level = 1 if defined?(ActiveRecord)
 end
-
 IRB.conf[:SAVE_HISTORY] = 10000
-IRB.conf[:USE_AUTOCOMPLETE] = false
+IRB.conf[:USE_AUTOCOMPLETE] = true
 
 def bm
   # From http://blog.evanweaver.com/articles/2006/12/13/benchmark/
@@ -22,23 +21,15 @@ end
 
 def with_profiler
   require 'ruby-prof'
-  require 'ruby-prof-flamegraph'
   RubyProf.start
   result = yield
   profiler = RubyProf.stop
 
   base_dir = "tmp/ruby_prof/#{Time.now.to_i}"
   FileUtils.mkdir_p(base_dir)
-  File.open("#{base_dir}/graph.html", 'w+') do |file|
-    RubyProf::GraphHtmlPrinter.new(profiler).print(file)
-  end
-  File.open("#{base_dir}/call_stack.html", 'w+') do |file|
-    RubyProf::CallStackPrinter.new(profiler).print(file)
-  end
-  File.open("#{base_dir}/flame_graph.txt", 'w+') do |file|
-    RubyProf::FlameGraphPrinter.new(profiler).print(file)
-  end
-  `flamegraph.pl --countname=ms --width=1600 #{base_dir}/flame_graph.txt > #{base_dir}/flame_graph.svg`
+  printer = RubyProf::MultiPrinter.new(profiler)
+  printer.print(path: base_dir, profile: 'profile')
+  `flamegraph.pl --countname=ms --width=1600 #{base_dir}/profile.flat.txt > #{base_dir}/flame_graph.svg`
   puts "Profile written to #{base_dir}"
   result
 end
@@ -66,7 +57,6 @@ class StandardError
   end
 end
 
-
 def bm
   # From http://blog.evanweaver.com/articles/2006/12/13/benchmark/
   # Call benchmark { } with any block and you get the wallclock runtime
@@ -79,4 +69,18 @@ def bm
   result
 end
 
-puts "Successfully loaded ~/.irbrc"
+# Console only task to update my password
+def update_my_password
+  User.skip_callback(:update, :after, :send_password_change_notification) rescue nil
+  me = User.find_by(email: ENV["MY_EMAIL"])
+  if me.nil?
+    puts "You don't exist brah"
+  else
+    me.password = "p"
+    me.password_confirmation = "p"
+    me.save(validate: false)
+  end
+  puts "please reload! to reset callbacks."
+end
+
+puts "Successfully loaded ~/.irbrc yes"

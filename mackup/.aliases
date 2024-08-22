@@ -12,6 +12,7 @@ alias .......="cd ../../../../../../"
 
 alias rca='bin/rubocop -a'
 alias rcp='bin/rubocop -P'
+alias rdb='bundle exec rdbg -An'
 
 alias dc=docker-compose
 alias bs="bundle exec spring"

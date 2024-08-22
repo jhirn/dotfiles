@@ -4,6 +4,7 @@ scratch.rb
 scratch.md
 scratch.txt
 scratch.js
+scratch.json
 .DS_Store
 .env.local
 .sass-cache
@@ -12,3 +13,4 @@ scratch.js
 solargraph_definitions.rb
 .blueprint*.json
 heroku.rake
+.mise.local.*

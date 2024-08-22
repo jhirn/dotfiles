@@ -1835,7 +1835,7 @@
 [auhal] # HAL AudioUnit output
 
 # Audio volume (integer)
-#auhal-volume=256
+auhal-volume=131
 
 # Last audio device (string)
 auhal-audio-device=0
