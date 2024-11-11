@@ -12,3 +12,6 @@ bash <(curl -L https://nixos.org/nix/install) --daemon
 
 
 nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ./nix/darwin#mbp
+
+
+# darwin-rebuild build --flake ./nix/darwin#mbpa
