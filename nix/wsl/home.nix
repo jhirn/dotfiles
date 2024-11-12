@@ -10,6 +10,7 @@
     coreutils
     curl
     du-dust
+    emacs
     fd
     findutils
     fx
