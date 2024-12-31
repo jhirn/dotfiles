@@ -1835,7 +1835,7 @@
 [auhal] # HAL AudioUnit output
 
 # Audio volume (integer)
-auhal-volume=131
+auhal-volume=269
 
 # Last audio device (string)
 auhal-audio-device=0
@@ -3939,7 +3939,7 @@ auhal-audio-device=0
 #random=0
 
 # Repeat all (boolean)
-#loop=0
+loop=1
 
 # Repeat current item (boolean)
 #repeat=0

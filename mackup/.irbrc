@@ -1,11 +1,25 @@
 require 'rubygems'
 
-unless defined?(ActiveRecord)
-#  ActiveRecord::Base.logger = ActiveSupport::Logger.new(STDOUT) if defined?(ActiveRecord)
-  ActiveRecord::Base.logger.level = 1 if defined?(ActiveRecord)
-end
+
+# def see_sql
+#   if defined?(ActiveRecord)
+#     puts "wth?"
+#     # ActiveRecord::Base.logger = ActiveSupport::Logger.new(STDOUT)
+#     # ActiveRecord::Base.logger.level = ActiveSupport::Logger::DEBUG
+#   end
+# end
+
+
+# if defined?(Rails)
+#   Rails.application.configure do
+#     config.after_initialize do
+#       # see_sql
+#     end
+#   end
+# end
+
 IRB.conf[:SAVE_HISTORY] = 10000
-IRB.conf[:USE_AUTOCOMPLETE] = true
+IRB.conf[:USE_AUTOCOMPLETE] = false
 
 def bm
   # From http://blog.evanweaver.com/articles/2006/12/13/benchmark/
@@ -33,9 +47,6 @@ def with_profiler
   puts "Profile written to #{base_dir}"
   result
 end
-
-IRB.conf[:USE_AUTOCOMPLETE] = false
-
 
 if defined?(QueryCount)
   def with_query_count
@@ -83,4 +94,4 @@ def update_my_password
   puts "please reload! to reset callbacks."
 end
 
-puts "Successfully loaded ~/.irbrc yes"
+puts "Successfully loaded ~/.irbrc"

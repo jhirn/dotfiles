@@ -2,43 +2,31 @@
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 set -x HOMEBREW_BUNDLE_FILE ~/.Brewfile
-set -x EDITOR "code"
+set -x EDITOR "cursor"
+
+if test -d (brew --prefix)"/share/fish/completions"
+    set -p fish_complete_path (brew --prefix)/share/fish/completions
+end
+
+if test -d (brew --prefix)"/share/fish/vendor_completions.d"
+    set -p fish_complete_path (brew --prefix)/share/fish/vendor_completions.d
+end
 
 test -e ~/.iterm2_shell_integration.fish ; and source ~/.iterm2_shell_integration.fish
 test -e ~/.aliases ; and source ~/.aliases
 test -e ~/.local.fish ; and source ~/.local.fish
 
-# Set up direnv (later)
-# direnv hook fish | source
-# RUBY Things
 status --is-interactive; and rbenv init - fish | source
 
-# fish_add_path -m /Users/jhirn/.rbenv/shims
-#set -x RUBY_DEBUG_IRB_CONSOLE "true"
-#set -x RUBY_DEBUG_HISTORY_FILE "$HOME/.irb_history"
-#set -x RUBY_DEBUG_SAVE_HISTORY 10000
 set -x RUBY_DEBUG_FORK_MODE "parent"
 set -gx RUBY_CONFIGURE_OPTS "--with-openssl-dir=$HOMEBREW_PREFIX/opt/openssl --enable-yjit --with-readline-dir=$HOMEBREW_PREFIX/opt/readline"
 
-
 set -g theme_display_node yes
 
-# Javascript things
 fnm env --use-on-cd | source
-# Potentially outdated as of m1 (was for obscure image magick7 bug)
-# set -gx PKG_CONFIG_PATH /usr/local/lib/pkgconfig
-
-# Java things
-# fish_add_path /Users/jhirn/.sdkman/candidates/java/current/bin
-
-# Intellij!
-#fish_add_path "/Applications/IntelliJ IDEA CE.app/Contents/MacOS"
-
-# Rust things
-#fish_add_path -mP $HOME/.cargo/bin
 
 # Deep competion for aws-cli
-complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
+# complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
 
 # SSH agent
 if not pgrep ssh-agent > /dev/null
@@ -46,11 +34,20 @@ if not pgrep ssh-agent > /dev/null
 end
 ssh-add ~/.ssh/id_ed25519 > /dev/null 2>&1
 
-# if status is-interactive
-#   mise activate fish | source
-# else
-#   mise activate fish --shims | source
-# end
+set -x ES_JAVA_HOME /opt/homebrew/Cellar/openjdk@17/17.0.12
+set -x ES_JAVA_OPTS $ES_JAVA_OPTS -Xms1g -Xmx1g -XX:-MaxFDLimit
 
-ulimit -n 1024
+if status is-interactive
+  mise activate fish | source
+else
+  mise activate fish --shims | source
+end
+
+# Nix
+if test -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'
+end
+# End Nix
+
+# ulimit -n 1024
 echo "completed fish profile"

@@ -54,3 +54,5 @@
 	ff = only
 [commit]
 	verbose = false
+[init]
+	defaultBranch = main
