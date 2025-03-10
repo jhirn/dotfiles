@@ -1,0 +1,68 @@
+[core]
+  editor = code --wait
+  excludesfile = /Users/jhirn/.gitignore_global
+  pager = less -r
+  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+[alias]
+  amend = commit --amend -C HEAD
+  cached = diff --cached
+  ci = commit -m
+  cia = commit --amend --no-edit
+  co = checkout
+  cpa = cherry-pick --abort
+  cpc = -c core.editor=true cherry-pick --continue
+  cpx = cherry-pick -x
+  d = diff
+  edit = commit --amend --only
+  find-file = "!for branch in $(git for-each-ref --format=\"%(refname)\" refs/heads); do if git ls-tree -r --name-only $branch | grep \"$1\" > /dev/null; then  echo \"${branch}:\"; git ls-tree -r --name-only $branch | nl -bn -w3 | grep \"$1\"; fi; done; :"
+  lb = !git reflog show --pretty=format:'%gs ~ %gd' --date=relative | grep 'checkout:' | grep -oE '[^ ]+ ~ .*' | awk -F~ '!seen[$1]++' | head -n 10 | awk -F' ~ HEAD@{' '{printf(\"  \\033[33m%s: \\033[37m %s\\033[0m\\n\", substr($2, 1, length($2)-1), $1)}'
+  ll = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Cgreen(%cr) %C(bold blue)<%an> %Creset %s' --abbrev-commit --date=relative --max-count=15
+  lll = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Cgreen(%cr) %C(bold blue)<%an> %Creset %s' --abbrev-commit --date=relative --max-count=200
+  llll = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Cgreen(%cr) %C(bold blue)<%an> %Creset %s' --abbrev-commit --date=relative
+  lr = log --graph --pretty=format:'%C(yellow)%d%Creset%Cred%h%Creset - %C(bold blue) %an %Creset %s' --abbrev-commit --date=relative --max-count=20
+  rba = rebase --abort
+  rbc = -c core.editor=true rebase --continue
+  st = status
+[color]
+  branch = auto
+  diff = auto
+  interactive = auto
+  pager = true
+  status = auto
+  ui = true
+[commit]
+  gpgsign = true
+  verbose = false
+
+[diff]
+  tool = cursor
+  wsErrorHighlight = all
+[difftool "cursor"]
+  cmd = cursor --wait --diff $LOCAL $REMOTE
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  process = git-lfs filter-process
+  required = true
+  smudge = git-lfs smudge -- %f
+[github]
+  user = jhirn
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[init]
+  defaultBranch = main
+[merge]
+  ff = only
+[pull]
+  ff = only
+[push]
+  default = current
+[ui]
+  color = auto
+[user]
+  email = joseph.hirn@gmail.com
+  name = Joseph Hirn
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIImzBe/1PoNemQ8OkyGWW1S9u5oPn1L0qwTgAgjEv7F8

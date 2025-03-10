@@ -1,0 +1,15 @@
+{
+	"account_id": "OYJUAWVZAVHLHJAAD34SVBGLIA",
+	"entrypoint": [
+		"doctl"
+	],
+	"credentials": [
+		{
+			"plugin": "digitalocean",
+			"credential_type": "personal_access_token",
+			"usage_id": "personal_access_token",
+			"vault_id": "ytlafgxzctwrxczrg7el6ah2wm",
+			"item_id": "lenxcg4bka5bnjodsh6ik6vcp4"
+		}
+	]
+}

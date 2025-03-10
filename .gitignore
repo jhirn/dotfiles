@@ -1,0 +1,3 @@
+home/bundle/cache
+home/sdkman
+!home/sdkman/etc/config

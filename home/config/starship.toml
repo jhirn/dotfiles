@@ -1,0 +1,69 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$directory\
+[](fg:#DA627D bg:#FCA17D)\
+$git_branch\
+$git_status\
+[](fg:#FCA17D)\
+$ruby\
+$nodejs\
+$cmd_duration\
+\n$status$character
+"""
+
+right_format = """$time"""
+
+[character]
+success_symbol = '[➜](bold green) '
+error_symbol = '[✗](bold red) '
+
+[directory]
+style = "bg:#DA627D"
+format = "[ $path ]($style)"
+
+[ruby]
+version_format = '${raw}'
+format = ' \([$symbol($version)]($style)\)'
+symbol = '🔺'
+
+[nodejs]
+symbol = ' '
+version_format = '${raw}'
+format = ' \([$symbol($version)]($style)\)'
+
+[cmd_duration]
+min_time = 1_000
+show_milliseconds = true
+format = ' \([$duration](yellow)\)'
+
+[time]
+disabled = false
+format = '[$time](bold blue)'
+
+[git_branch]
+style = "bg:#FCA17D"
+ignore_branches = []
+symbol = ''
+format = '[ $symbol($branch)]($style)'
+
+[git_status]
+style = "bg:#FCA17D"
+format = '([ \[$all_status$ahead_behind\] ]($style))'
+# conflicted = '🏳'
+# ahead = '🏎💨'
+# behind = '😰'
+# diverged = '😵'
+# up_to_date = '✓'
+# untracked = '🤷'
+# modified = '📝'
+# staged = '[ ++\($count\)](bg:#FCA17D)'
+# renamed = '👅'
+# deleted = '🗑'
+
+[status]
+symbol = '❌ '
+success_symbol = ''
+format = '[$int ]($style)'
+map_symbol = true
+disabled = false

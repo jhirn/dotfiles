@@ -1,0 +1,24 @@
+alias ls='ls -G'
+alias ll='ls -l'
+
+alias gpr="git pull --rebase"
+
+alias ..="cd ../"
+alias ...="cd ../../"
+alias ....="cd ../../../"
+alias .....="cd ../../../../"
+alias ......="cd ../../../../../"
+alias .......="cd ../../../../../../"
+
+alias rca='bin/rubocop -a'
+alias rcp='bin/rubocop -P'
+alias rdb='bundle exec rdbg -An'
+
+alias dc="docker compose"
+alias bs="bundle exec spring"
+alias be="bundle exec"
+alias tf="terraform"
+alias yeet="rm -fr"
+
+alias frozen_string_literal="be rubocop -A --only Style/FrozenStringLiteralComment"
+alias dotfiles="code ~/src/dotfiles"
