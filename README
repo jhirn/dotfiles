@@ -1,2 +1,11 @@
-bash < <( curl http://github.com/jhirn/dotfiles/raw/master/local_install.sh )
+# Dotfiles
 
+Collection of dotfiles I've used since 2010, excluding emacs (which I no longer use).
+
+## Note
+
+Feel free to crib individual files but the installation is a bit wonky due to a security patch for MacOS no longer allowing symlinks to `~/Library` directories, effectively [breaking Mackup](https://github.com/lra/mackup/issues/1924). I'll be converting to something else so my shell scripts can be edited in one place and symlinked and use something else to manage applicaiton backup and MacOS settings. For now I use mackup to copy files here and then uninstall mackup to replace links with hard copies with
+
+```
+mackup backup --force && mackup uninstall
+```
