@@ -1,8 +1,19 @@
 # SHELL things
 
+# Fish cheatsheet
+# set -U for settings you want to persist across shell restarts (universal)
+# set -g for session-wide settings (global)
+# set -x to set for child processes (external commands)
+# set -p prepend to array.
+# set -l for local variables (temporary)
+# set -q for existance
+# fish_add_path instead of manually modifying $path
+# fish_add_path -a to append to $path
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
 set -x HOMEBREW_BUNDLE_FILE ~/.Brewfile
 set -x HOMEBREW_FORBIDDEN_FORMULAE "node ruby yarn docker chromedriver"
+set -x HOMEBREW_BUNDLE_NO_VSCODE "1"
 set -x EDITOR "cursor"
 
 if test -d (brew --prefix)"/share/fish/completions"
@@ -28,21 +39,22 @@ fnm env --use-on-cd | source
 # Deep competion for aws-cli, not using AWS rn thankfully
 # complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
 
-# SSH agent
+# SSH
 if not pgrep ssh-agent > /dev/null
     eval (ssh-agent -c)
 end
-ssh-add ~/.ssh/id_ed25519 > /dev/null 2>&1
+if test -f ~/.ssh/id_ed25519
+  ssh-add ~/.ssh/id_ed25519 > /dev/null 2>&1
+end
 
-set -x ES_JAVA_HOME /opt/homebrew/Cellar/openjdk@17/17.0.12
-set -x ES_JAVA_OPTS $ES_JAVA_OPTS -Xms1g -Xmx1g -XX:-MaxFDLimit
-
+# Mise
 if status is-interactive
   mise activate fish | source
 else
   mise activate fish --shims | source
 end
 
+# Rust
 if test -e /opt/homebrew/opt/rustup/bin
   fish_add_path /opt/homebrew/opt/rustup/bin
 end
@@ -51,5 +63,6 @@ end
 set -u fish_greeting
 starship init fish | source
 
-# ulimit -n 1024
-# echo "completed fish profile"
+ulimit -n 1024
+
+echo "Fish profile loaded..."
