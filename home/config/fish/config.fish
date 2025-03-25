@@ -61,8 +61,11 @@ end
 
 # Prompting
 set -u fish_greeting
-starship init fish | source
 
-ulimit -n 1024
+if command -qv starship
+  starship init fish | source
+end
+
+ulimit -n 10240
 
 echo "Fish profile loaded..."
