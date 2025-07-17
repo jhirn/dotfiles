@@ -43,4 +43,6 @@ fi
 # export SDKMAN_DIR="/Users/jhirn/.sdkman"
 # [[ -s "/Users/jhirn/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jhirn/.sdkman/bin/sdkman-init.sh"
 
-# . "$HOME/.cargo/env"
+if [ -r ~/.cargo/env ]; then
+  . "$HOME/.cargo/env"
+fi

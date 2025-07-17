@@ -16,6 +16,7 @@
   edit = commit --amend --only
   find-file = "!for branch in $(git for-each-ref --format=\"%(refname)\" refs/heads); do if git ls-tree -r --name-only $branch | grep \"$1\" > /dev/null; then  echo \"${branch}:\"; git ls-tree -r --name-only $branch | nl -bn -w3 | grep \"$1\"; fi; done; :"
   lb = !git reflog show --pretty=format:'%gs ~ %gd' --date=relative | grep 'checkout:' | grep -oE '[^ ]+ ~ .*' | awk -F~ '!seen[$1]++' | head -n 10 | awk -F' ~ HEAD@{' '{printf(\"  \\033[33m%s: \\033[37m %s\\033[0m\\n\", substr($2, 1, length($2)-1), $1)}'
+  l = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Cgreen(%cr) %C(bold blue)<%an> %Creset %s' --abbrev-commit --date=relative --max-count=6
   ll = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Cgreen(%cr) %C(bold blue)<%an> %Creset %s' --abbrev-commit --date=relative --max-count=15
   lll = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Cgreen(%cr) %C(bold blue)<%an> %Creset %s' --abbrev-commit --date=relative --max-count=200
   llll = log --graph --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Cgreen(%cr) %C(bold blue)<%an> %Creset %s' --abbrev-commit --date=relative
@@ -33,7 +34,6 @@
 [commit]
   gpgsign = true
   verbose = false
-
 [diff]
   tool = cursor
   wsErrorHighlight = all

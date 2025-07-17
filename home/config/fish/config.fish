@@ -29,7 +29,7 @@ test -e ~/.aliases ; and source ~/.aliases
 test -e ~/.local.fish ; and source ~/.local.fish
 
 # Ruby
-status --is-interactive; and rbenv init - fish | source
+# status --is-interactive; and rbenv init - fish | source
 set -x RUBY_DEBUG_FORK_MODE "parent"
 set -gx RUBY_CONFIGURE_OPTS "--with-openssl-dir=$HOMEBREW_PREFIX/opt/openssl --enable-yjit --with-readline-dir=$HOMEBREW_PREFIX/opt/readline"
 
@@ -43,6 +43,7 @@ fnm env --use-on-cd | source
 if not pgrep ssh-agent > /dev/null
     eval (ssh-agent -c)
 end
+
 if test -f ~/.ssh/id_ed25519
   ssh-add ~/.ssh/id_ed25519 > /dev/null 2>&1
 end
