@@ -71,8 +71,9 @@ def create_symlinks
   end
 end
 
+create_symlinks
+puts
 install_brew
 puts
 install_fish
 puts
-create_symlinks

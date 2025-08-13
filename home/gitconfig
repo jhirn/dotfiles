@@ -66,3 +66,6 @@
   email = joseph.hirn@gmail.com
   name = Joseph Hirn
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIImzBe/1PoNemQ8OkyGWW1S9u5oPn1L0qwTgAgjEv7F8
+
+[includeIf "gitdir:~/src/rentbutter/"]
+	path = ~/src/rentbutter/.gitconfig

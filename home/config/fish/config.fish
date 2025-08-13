@@ -34,10 +34,9 @@ set -x RUBY_DEBUG_FORK_MODE "parent"
 set -gx RUBY_CONFIGURE_OPTS "--with-openssl-dir=$HOMEBREW_PREFIX/opt/openssl --enable-yjit --with-readline-dir=$HOMEBREW_PREFIX/opt/readline"
 
 # Javascript
-fnm env --use-on-cd | source
+# fnm env --use-on-cd | source
 
-# Deep competion for aws-cli, not using AWS rn thankfully
-# complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
+complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
 
 # SSH
 if not pgrep ssh-agent > /dev/null
@@ -47,6 +46,7 @@ end
 if test -f ~/.ssh/id_ed25519
   ssh-add ~/.ssh/id_ed25519 > /dev/null 2>&1
 end
+# set -gx SSH_AUTH_SOCK "/Users/jhirn/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
 # Mise
 if status is-interactive

@@ -4,3 +4,5 @@ home/sdkman
 
 # npm garbage file.
 home/config/configstore/update-notifier-npm-check-updates.json
+home/config/yarn
+home/yarnrc
