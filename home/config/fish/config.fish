@@ -16,12 +16,13 @@ set -x HOMEBREW_FORBIDDEN_FORMULAE "node ruby yarn docker chromedriver"
 set -x HOMEBREW_BUNDLE_NO_VSCODE "1"
 set -x EDITOR "cursor"
 
-if test -d (brew --prefix)"/share/fish/completions"
-    set -p fish_complete_path (brew --prefix)/share/fish/completions
+set brew_prefix (brew --prefix)
+if test -d $brew_prefix/share/fish/completions
+    set -p fish_complete_path $brew_prefix/share/fish/completions
 end
 
-if test -d (brew --prefix)"/share/fish/vendor_completions.d"
-    set -p fish_complete_path (brew --prefix)/share/fish/vendor_completions.d
+if test -d $brew_prefix/share/fish/vendor_completions.d
+    set -p fish_complete_path $brew_prefix/share/fish/vendor_completions.d
 end
 
 test -e ~/.iterm2_shell_integration.fish ; and source ~/.iterm2_shell_integration.fish
