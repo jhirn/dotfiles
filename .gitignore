@@ -3,6 +3,6 @@ home/sdkman
 !home/sdkman/etc/config
 
 # npm garbage file.
-home/config/configstore/update-notifier-npm-check-updates.json
+home/config/configstore
 home/config/yarn
 home/yarnrc

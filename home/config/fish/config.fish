@@ -7,6 +7,7 @@
 # set -p prepend to array.
 # set -l for local variables (temporary)
 # set -q for existance
+
 # fish_add_path instead of manually modifying $path
 # fish_add_path -a to append to $path
 
