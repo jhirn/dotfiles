@@ -1,4 +1,4 @@
-function switch-aws-profile
+function aws-profile
     set -gx AWS_PROFILE $argv[1]
     if ! aws sts get-caller-identity > /dev/null
         aws sso login

@@ -1,11 +1,32 @@
-function aws-staging
+function aws-ssh
     set -l instance_name $argv[1]
     set -l profile $argv[2]
+
     if test -z "$profile"
-        set profile staging-admin
+        set -l profiles (awk ' /\[profile/ { sub(/]/, "", $2); print $2 }' ~/.aws/config)
+
+        if test (count $profiles) -eq 0
+            echo "No AWS profiles found in ~/.aws/config"
+            return 1
+        end
+
+        echo "Available AWS profiles:"
+        for i in (seq (count $profiles))
+            echo "  $i) $profiles[$i]"
+        end
+
+        echo "Select profile (1-"(count $profiles)"): "
+        read -l profile_selection
+
+        if test -z "$profile_selection" -o "$profile_selection" -lt 1 -o "$profile_selection" -gt (count $profiles)
+            echo "Invalid selection"
+            return 1
+        end
+
+        set profile $profiles[$profile_selection]
+        echo "Selected profile: $profile"
     end
 
-    # If no instance name provided, show interactive selection
     if test -z "$instance_name"
         echo "Fetching available instances..."
         set -l instances_json (aws ec2 describe-instances \
