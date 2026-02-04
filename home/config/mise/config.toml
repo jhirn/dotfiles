@@ -4,3 +4,4 @@ idiomatic_version_file_enable_tools = ["ruby", "node"]
 [tools]
 node = 'latest'
 ruby = 'latest'
+uv = "latest"

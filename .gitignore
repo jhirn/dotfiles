@@ -4,5 +4,6 @@ home/sdkman
 
 # npm garbage file.
 home/config/configstore
+home/config/ldcli
 home/config/yarn
 home/yarnrc
