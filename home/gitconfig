@@ -24,6 +24,7 @@
   rba = rebase --abort
   rbc = -c core.editor=true rebase --continue
   st = status
+  poop = stash pop
 [color]
   branch = auto
   diff = auto
