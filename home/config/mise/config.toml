@@ -1,5 +1,13 @@
 [settings]
 idiomatic_version_file_enable_tools = ["ruby", "node"]
+experimental = true
+
+[settings.node]
+compile = false
+corepack = true
+
+[settings.ruby]
+compile = false
 
 [tools]
 node = 'latest'
