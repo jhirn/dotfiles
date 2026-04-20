@@ -1,6 +1,7 @@
 #!/usr/bin/ruby
 require "Open3"
 require 'fileutils'
+require 'shellwords'
 
 def home
    File.expand_path('~')
@@ -71,9 +72,24 @@ def create_symlinks
   end
 end
 
+def install_macos_preferences
+  return unless RUBY_PLATFORM.include?('darwin')
+
+  script = File.expand_path('macOS/preferences.sh', __dir__)
+  unless File.exist?(script)
+    puts "macOS preferences script not found: #{script}"
+    return
+  end
+
+  puts "Running macOS preferences..."
+  run("/bin/bash #{Shellwords.escape(script)}")
+end
+
 create_symlinks
 puts
 install_brew
 puts
 install_fish
+puts
+install_macos_preferences
 puts
