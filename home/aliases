@@ -22,3 +22,6 @@ alias yeet="rm -fr"
 
 alias frozen_string_literal="be rubocop -A --only Style/FrozenStringLiteralComment"
 alias dotfiles="code ~/src/dotfiles"
+
+alias pushit="git push"
+alias pushit-real-good="git push --force-with-lease"
