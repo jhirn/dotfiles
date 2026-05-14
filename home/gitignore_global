@@ -18,3 +18,4 @@ heroku.rake
 .mise.test.local.toml
 scratch.tf
 log/*.log.[0-9]
+.claude/settings.local.json
