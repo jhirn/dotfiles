@@ -9,6 +9,7 @@
   ci = commit -m
   cia = commit --amend --no-edit
   co = checkout
+  cod= checkout development
   cpa = cherry-pick --abort
   cpc = -c core.editor=true cherry-pick --continue
   cpx = cherry-pick -x
@@ -23,6 +24,7 @@
   lr = log --graph --pretty=format:'%C(yellow)%d%Creset%Cred%h%Creset - %C(bold blue) %an %Creset %s' --abbrev-commit --date=relative --max-count=20
   rba = rebase --abort
   rbc = -c core.editor=true rebase --continue
+  rbd = rebase development
   st = status
   poop = stash pop
 [color]

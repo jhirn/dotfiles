@@ -7,3 +7,8 @@ fpath=(/Users/jhirn/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/jhirn/.lmstudio/bin"
+# End of LM Studio CLI section
+

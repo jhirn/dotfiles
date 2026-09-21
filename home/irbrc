@@ -2,7 +2,6 @@ require 'rubygems'
 
 # def see_sql
 #   if defined?(ActiveRecord)
-#     puts "wth?"
 #     # ActiveRecord::Base.logger = ActiveSupport::Logger.new(STDOUT)
 #     # ActiveRecord::Base.logger.level = ActiveSupport::Logger::DEBUG
 #   end

@@ -57,6 +57,10 @@ if test -e /opt/homebrew/opt/rustup/bin
   fish_add_path /opt/homebrew/opt/rustup/bin
 end
 
+if test -d ~/src/rentbutter/argo-rentbutter/bin/global
+  fish_add_path ~/src/rentbutter/argo-rentbutter/bin/global
+end
+
 # Prompting
 set -u fish_greeting
 
