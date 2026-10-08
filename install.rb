@@ -46,29 +46,50 @@ def install_fish
   end
 end
 
+def ensure_symlink(source_full, target)
+  if File.exist?(target) || File.symlink?(target)
+    if File.symlink?(target) && File.readlink(target) == source_full
+      puts "✓ #{target} already points to #{source_full}"
+    else
+      puts "! #{target} already exists but is not a symlink to #{source_full}"
+      print "  Overwrite? (y/n): "
+      if STDIN.gets.chomp.downcase == 'y'
+        FileUtils.rm_rf(target)
+        File.symlink(source_full, target)
+        puts "  ✓ Created symlink: #{target} -> #{source_full}"
+      end
+    end
+  else
+    File.symlink(source_full, target)
+    puts "✓ Created symlink: #{target} -> #{source_full}"
+  end
+end
+
 def create_symlinks
   puts "Creating Symlinks...."
   Dir.glob('./home/*').each do |source|
     basename = File.basename(source)
-    target = File.join(home, ".#{basename}")
-    source_full = File.expand_path(source)
+    next if basename == 'config'
 
-    if File.exist?(target)
-      if File.symlink?(target) && File.readlink(target) == source_full
-        puts "✓ #{target} already points to #{source_full}"
-      else
-        puts "! #{target} already exists but is not a symlink to #{source_full}"
-        print "  Overwrite? (y/n): "
-        if STDIN.gets.chomp.downcase == 'y'
-          FileUtils.rm_rf(target)
-          File.symlink(source_full, target)
-          puts "  ✓ Created symlink: #{target} -> #{source_full}"
-        end
-      end
-    else
-      File.symlink(source_full, target)
-      puts "✓ Created symlink: #{target} -> #{source_full}"
-    end
+    ensure_symlink(File.expand_path(source), File.join(home, ".#{basename}"))
+  end
+
+  create_config_symlinks
+end
+
+def create_config_symlinks
+  config_home = File.join(home, '.config')
+  FileUtils.mkdir_p(config_home)
+
+  if File.symlink?(config_home)
+    puts "! #{config_home} is a symlink; expected a real directory."
+    return
+  end
+
+  puts "Creating ~/.config symlinks...."
+  Dir.glob('./home/config/*').each do |source|
+    basename = File.basename(source)
+    ensure_symlink(File.expand_path(source), File.join(config_home, basename))
   end
 end
 
